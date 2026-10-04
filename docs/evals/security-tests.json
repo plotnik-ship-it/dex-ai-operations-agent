@@ -1,0 +1,13 @@
+{
+  "evaluatedAt": "2026-10-04T20:09:49.722Z",
+  "durationMs": 5376,
+  "exitCode": 0,
+  "signal": null,
+  "passed": true,
+  "tests": 100,
+  "testCases": 98,
+  "failures": 0,
+  "skipped": 0,
+  "scope": "All automated tests with local PostgreSQL, semantic retrieval and Mailpit; provider faults are injected test doubles",
+  "junit": "security-tests.xml"
+}

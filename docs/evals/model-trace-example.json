@@ -1,0 +1,451 @@
+{
+  "traceId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+  "storage": "Controlled in-memory tools; actual local model decisions",
+  "events": [
+    {
+      "id": "95b8cb44-2dad-44e1-9e54-46b2befa226b",
+      "timestamp": "2026-10-04T19:59:17.953Z",
+      "type": "user_request",
+      "spanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "parentSpanId": null,
+      "durationMs": null,
+      "data": {
+        "request": "Find unpaid bookings with missing documents, check the contract deadlines, and prepare reminders for human review.",
+        "groupId": "group-a",
+        "plannerMode": "ollama-local"
+      }
+    },
+    {
+      "id": "57a5c3db-fa2a-4427-81e3-c8d76ea1b8eb",
+      "timestamp": "2026-10-04T19:59:17.954Z",
+      "type": "permission_check",
+      "spanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "parentSpanId": null,
+      "durationMs": null,
+      "data": {
+        "boundary": "run_creation",
+        "allowed": true,
+        "source": "database_rls"
+      }
+    },
+    {
+      "id": "8fe5d57e-9377-47a3-b9e8-86f41dde219f",
+      "timestamp": "2026-10-04T19:59:17.954Z",
+      "type": "model_started",
+      "spanId": "00913110-087e-46ef-8519-46abde43d32d",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": null,
+      "data": {
+        "step": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "id": "629c7702-89d4-4cad-be1f-fbc5b4e60054",
+      "timestamp": "2026-10-04T19:59:33.939Z",
+      "type": "model_decision",
+      "spanId": "00913110-087e-46ef-8519-46abde43d32d",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": 15985,
+      "data": {
+        "step": 0,
+        "decision": {
+          "name": "list_bookings_requiring_attention",
+          "arguments": {
+            "filter": "unpaid_balances_and_missing_documents"
+          }
+        },
+        "modelUsage": {
+          "provider": "ollama",
+          "protocol": "schema-constrained-tools",
+          "model": "qwen3:4b",
+          "calls": 1,
+          "inputTokens": 426,
+          "outputTokens": 35,
+          "durationMs": 15985,
+          "estimatedProviderCostUsd": 0
+        }
+      }
+    },
+    {
+      "id": "239c1b11-1ef7-4b9e-80ac-3e9bb8162f96",
+      "timestamp": "2026-10-04T19:59:33.939Z",
+      "type": "tool_selected",
+      "spanId": "0aed070d-554d-4bd7-acc9-7d5d18d85276",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": null,
+      "data": {
+        "tool": "list_bookings_requiring_attention",
+        "arguments": {
+          "filter": "unpaid_balances_and_missing_documents"
+        },
+        "attempt": 1
+      }
+    },
+    {
+      "id": "e8b42367-e214-48e9-8505-b752c3d59a1c",
+      "timestamp": "2026-10-04T19:59:33.939Z",
+      "type": "permission_check",
+      "spanId": "0aed070d-554d-4bd7-acc9-7d5d18d85276",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": null,
+      "data": {
+        "boundary": "booking_read",
+        "allowed": true
+      }
+    },
+    {
+      "id": "47f08c99-ad2f-479c-835f-cbd864315ffe",
+      "timestamp": "2026-10-04T19:59:33.939Z",
+      "type": "tool_result",
+      "spanId": "0aed070d-554d-4bd7-acc9-7d5d18d85276",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": 0,
+      "data": {
+        "tool": "list_bookings_requiring_attention",
+        "output": [
+          {
+            "id": "b",
+            "groupId": "group-a",
+            "balanceMinor": "150001",
+            "currency": "USD",
+            "missingDocuments": [
+              "passport_copy"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "6457bd37-ef3c-4dcf-881f-f16afb67741e",
+      "timestamp": "2026-10-04T19:59:33.939Z",
+      "type": "model_started",
+      "spanId": "e104fc17-4bad-4030-8143-5a18be59401c",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": null,
+      "data": {
+        "step": 1,
+        "attempt": 1
+      }
+    },
+    {
+      "id": "1618968d-922a-4576-b8be-a82ddb2340f8",
+      "timestamp": "2026-10-04T19:59:45.339Z",
+      "type": "model_decision",
+      "spanId": "e104fc17-4bad-4030-8143-5a18be59401c",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": 11400,
+      "data": {
+        "step": 1,
+        "decision": {
+          "name": "search_contract_sources",
+          "arguments": {
+            "query": "unpaid bookings with missing passport documents"
+          }
+        },
+        "modelUsage": {
+          "provider": "ollama",
+          "protocol": "schema-constrained-tools",
+          "model": "qwen3:4b",
+          "calls": 2,
+          "inputTokens": 911,
+          "outputTokens": 67,
+          "durationMs": 27384,
+          "estimatedProviderCostUsd": 0
+        }
+      }
+    },
+    {
+      "id": "b6a50312-c2b2-43b4-8fd8-f14b634e2c5d",
+      "timestamp": "2026-10-04T19:59:45.339Z",
+      "type": "tool_selected",
+      "spanId": "9ee78472-7c3f-43c7-854a-44962f66d053",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": null,
+      "data": {
+        "tool": "search_contract_sources",
+        "arguments": {
+          "query": "unpaid bookings with missing passport documents"
+        },
+        "attempt": 1
+      }
+    },
+    {
+      "id": "135ca9f4-9d24-43c9-8f0e-92bc4222ddab",
+      "timestamp": "2026-10-04T19:59:45.339Z",
+      "type": "permission_check",
+      "spanId": "9ee78472-7c3f-43c7-854a-44962f66d053",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": null,
+      "data": {
+        "boundary": "source_search",
+        "allowed": true
+      }
+    },
+    {
+      "id": "4c9c41f7-7142-421b-b393-da24c01eaa21",
+      "timestamp": "2026-10-04T19:59:45.339Z",
+      "type": "permission_check",
+      "spanId": "9ee78472-7c3f-43c7-854a-44962f66d053",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": null,
+      "data": {
+        "boundary": "source_expansion",
+        "allowed": true
+      }
+    },
+    {
+      "id": "bed40775-f0ff-4212-a42a-e250d70da84b",
+      "timestamp": "2026-10-04T19:59:45.339Z",
+      "type": "tool_result",
+      "spanId": "9ee78472-7c3f-43c7-854a-44962f66d053",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": 0,
+      "data": {
+        "tool": "search_contract_sources",
+        "output": [
+          {
+            "id": "p",
+            "section": "Section 4 — Final payment",
+            "excerpt": "The remaining booking balance must be paid by November 15, 2026."
+          },
+          {
+            "id": "d",
+            "section": "Section 5 — Required documents",
+            "excerpt": "Passport copies must be submitted by November 10, 2026."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9f4711b3-12a2-444c-9a52-ceaf69dce342",
+      "timestamp": "2026-10-04T19:59:45.339Z",
+      "type": "model_started",
+      "spanId": "38978098-1bf8-44f7-be10-dba5a53532aa",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": null,
+      "data": {
+        "step": 2,
+        "attempt": 1
+      }
+    },
+    {
+      "id": "f2d360b0-4165-4cc4-a560-3f84d9951dbb",
+      "timestamp": "2026-10-04T19:59:55.685Z",
+      "type": "model_decision",
+      "spanId": "38978098-1bf8-44f7-be10-dba5a53532aa",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": 10346,
+      "data": {
+        "step": 2,
+        "decision": {
+          "name": "prepare_reminder_draft",
+          "arguments": {
+            "delivery": "draft_only"
+          }
+        },
+        "modelUsage": {
+          "provider": "ollama",
+          "protocol": "schema-constrained-tools",
+          "model": "qwen3:4b",
+          "calls": 3,
+          "inputTokens": 1478,
+          "outputTokens": 95,
+          "durationMs": 37730,
+          "estimatedProviderCostUsd": 0
+        }
+      }
+    },
+    {
+      "id": "cf19d5a4-dc90-478f-975f-c8df76e1bbb1",
+      "timestamp": "2026-10-04T19:59:55.685Z",
+      "type": "tool_selected",
+      "spanId": "7bbcb3c8-edd7-46a1-a38f-ac32de2bad9f",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": null,
+      "data": {
+        "tool": "prepare_reminder_draft",
+        "arguments": {
+          "delivery": "draft_only"
+        },
+        "attempt": 1
+      }
+    },
+    {
+      "id": "d17263a1-a106-48c8-9def-641a6e2f94dc",
+      "timestamp": "2026-10-04T19:59:55.686Z",
+      "type": "permission_check",
+      "spanId": "7bbcb3c8-edd7-46a1-a38f-ac32de2bad9f",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": null,
+      "data": {
+        "boundary": "draft_persistence",
+        "allowed": true
+      }
+    },
+    {
+      "id": "a887ca1c-bff6-4dd3-87d5-fe027d771bb6",
+      "timestamp": "2026-10-04T19:59:55.686Z",
+      "type": "tool_result",
+      "spanId": "7bbcb3c8-edd7-46a1-a38f-ac32de2bad9f",
+      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "durationMs": 1,
+      "data": {
+        "tool": "prepare_reminder_draft",
+        "status": "pending_review",
+        "draftId": "fixture-draft",
+        "drafts": [
+          {
+            "bookingId": "b",
+            "deliveryDestination": "[email]",
+            "subject": "Action needed for your booking b",
+            "body": "Hello,\n\nYour booking b has an outstanding balance of USD 1500.01. Please complete payment by 2026-11-15.\nMissing documents: passport_copy. Please submit them by 2026-11-10.\n\nIf you have already completed these steps, please contact your travel agency.",
+            "balanceMinor": "150001",
+            "currency": "USD",
+            "missingDocuments": [
+              "passport_copy"
+            ]
+          }
+        ],
+        "deadlines": [
+          {
+            "obligation": "payment",
+            "status": "supported",
+            "date": "2026-11-15",
+            "sources": [
+              {
+                "id": "p",
+                "contractId": "c",
+                "title": "Synthetic contract",
+                "version": "1",
+                "page": 1,
+                "section": "Section 4 — Final payment",
+                "excerpt": "The remaining booking balance must be paid by November 15, 2026."
+              }
+            ]
+          },
+          {
+            "obligation": "documents",
+            "status": "supported",
+            "date": "2026-11-10",
+            "sources": [
+              {
+                "id": "d",
+                "contractId": "c",
+                "title": "Synthetic contract",
+                "version": "1",
+                "page": 2,
+                "section": "Section 5 — Required documents",
+                "excerpt": "Passport copies must be submitted by November 10, 2026."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cd6da00d-3344-49e3-adfe-ce10a8a181e5",
+      "timestamp": "2026-10-04T19:59:55.686Z",
+      "type": "final_answer",
+      "spanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "parentSpanId": null,
+      "durationMs": 37734,
+      "data": {
+        "result": {
+          "runId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+          "plannerMode": "ollama-local",
+          "status": "pending_review",
+          "drafts": [
+            {
+              "bookingId": "b",
+              "deliveryDestination": "[email]",
+              "subject": "Action needed for your booking b",
+              "body": "Hello,\n\nYour booking b has an outstanding balance of USD 1500.01. Please complete payment by 2026-11-15.\nMissing documents: passport_copy. Please submit them by 2026-11-10.\n\nIf you have already completed these steps, please contact your travel agency.",
+              "balanceMinor": "150001",
+              "currency": "USD",
+              "missingDocuments": [
+                "passport_copy"
+              ]
+            }
+          ],
+          "deadlines": [
+            {
+              "obligation": "payment",
+              "status": "supported",
+              "date": "2026-11-15",
+              "sources": [
+                {
+                  "id": "p",
+                  "contractId": "c",
+                  "title": "Synthetic contract",
+                  "version": "1",
+                  "page": 1,
+                  "section": "Section 4 — Final payment",
+                  "excerpt": "The remaining booking balance must be paid by November 15, 2026."
+                }
+              ]
+            },
+            {
+              "obligation": "documents",
+              "status": "supported",
+              "date": "2026-11-10",
+              "sources": [
+                {
+                  "id": "d",
+                  "contractId": "c",
+                  "title": "Synthetic contract",
+                  "version": "1",
+                  "page": 2,
+                  "section": "Section 5 — Required documents",
+                  "excerpt": "Passport copies must be submitted by November 10, 2026."
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "list_bookings_requiring_attention",
+              "durationMs": 0,
+              "status": "ok"
+            },
+            {
+              "name": "search_contract_sources",
+              "durationMs": 0,
+              "status": "ok"
+            },
+            {
+              "name": "prepare_reminder_draft",
+              "durationMs": 1,
+              "status": "ok"
+            }
+          ],
+          "modelUsage": {
+            "provider": "ollama",
+            "protocol": "schema-constrained-tools",
+            "model": "qwen3:4b",
+            "calls": 3,
+            "inputTokens": 1478,
+            "outputTokens": 95,
+            "durationMs": 37730,
+            "estimatedProviderCostUsd": 0
+          },
+          "deliveryEnabled": false,
+          "estimatedProviderCostUsd": 0,
+          "draftId": "fixture-draft",
+          "expiresAt": "2026-10-04T20:29:55.686Z"
+        },
+        "modelUsage": {
+          "provider": "ollama",
+          "protocol": "schema-constrained-tools",
+          "model": "qwen3:4b",
+          "calls": 3,
+          "inputTokens": 1478,
+          "outputTokens": 95,
+          "durationMs": 37730,
+          "estimatedProviderCostUsd": 0
+        },
+        "retries": 0
+      }
+    }
+  ]
+}

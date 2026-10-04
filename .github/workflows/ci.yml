@@ -1,0 +1,103 @@
+name: Dex reliability
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      live_model:
+        description: Run the local Qwen model evaluations
+        type: boolean
+        default: true
+  schedule:
+    - cron: '0 9 * * 1'
+permissions:
+  contents: read
+concurrency:
+  group: dex-reliability-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  reliability:
+    name: 98 checks and 60-scenario matrix
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Discard historical checks before this run
+        run: rm -f docs/evals/evaluation-matrix.json docs/evals/evaluation-matrix.xml docs/evals/security-tests.json docs/evals/security-tests.xml
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Execute all 60 deterministic scenarios
+        run: npm run eval:matrix
+      - name: Start disposable local services
+        run: docker compose up -d --wait
+      - name: Index fictional contract evidence
+        run: npm run index:contracts
+        env:
+          INDEX_DATABASE_URL: postgres://dex_migration:local_migration_password@localhost:5432/dex
+      - name: Execute complete security and integration suite
+        run: npm run test:security
+      - name: Generate readable evaluation report
+        if: always()
+        run: npm run report:evals
+      - name: Publish checks in the job summary
+        if: always()
+        run: cat docs/eval-results/latest.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reliability-evidence-${{ github.run_id }}
+          path: |
+            docs/evals/evaluation-matrix.*
+            docs/evals/security-tests.*
+            docs/evals/delivery-trace-example.json
+            docs/eval-results/
+      - name: Service diagnostics
+        if: failure()
+        run: docker compose logs
+      - name: Stop disposable services
+        if: always()
+        run: docker compose down
+  live-model:
+    name: Qwen 4B evaluations (scheduled / manual)
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.live_model)
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Discard historical model reports before this run
+        run: rm -f docs/evals/model-matrix.json docs/evals/model-matrix-progress.json docs/evals/model-trace-example.json docs/evals/adversarial-llm.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run setup:demo
+      - run: docker compose --profile llm up -d --wait
+      - name: Download allowlisted local model
+        run: docker compose exec -T ollama ollama pull qwen3:4b
+      - name: Measure actual model decisions
+        run: npm run eval:model-matrix
+      - name: Evaluate hostile contract evidence
+        run: npm run eval:adversarial
+      - name: Generate readable model report
+        if: always()
+        run: npm run report:evals
+      - name: Publish model evidence in job summary
+        if: always()
+        run: cat docs/eval-results/latest.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-model-evidence-${{ github.run_id }}
+          path: |
+            docs/evals/model-matrix*.json
+            docs/evals/model-trace-example.json
+            docs/evals/adversarial-llm.json
+            docs/eval-results/
+      - name: Stop disposable services
+        if: always()
+        run: docker compose --profile llm down

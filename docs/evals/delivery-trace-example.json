@@ -1,0 +1,599 @@
+{
+  "scope": "Real local PostgreSQL, approvals, queue and Mailpit; scripted planner and controlled retrieval. Test agency removed after export.",
+  "traceId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+  "run": {
+    "id": "6a53b288-cb71-4469-8553-cfce4ae30500",
+    "agency_id": "test-213ab089-c94b-4fde-a847-43ec5e58c9d6",
+    "group_id": "group-213ab089-c94b-4fde-a847-43ec5e58c9d6",
+    "created_by": "user-213ab089-c94b-4fde-a847-43ec5e58c9d6",
+    "planner_mode": "scripted-demo",
+    "status": "pending_review",
+    "started_at": "2026-10-04T20:09:53.428Z",
+    "finished_at": "2026-10-04T20:09:53.630Z",
+    "duration_ms": 203,
+    "events": [
+      {
+        "name": "list_bookings_requiring_attention",
+        "status": "ok",
+        "durationMs": 22
+      },
+      {
+        "name": "search_contract_sources",
+        "status": "ok",
+        "durationMs": 35
+      },
+      {
+        "name": "prepare_reminder_draft",
+        "status": "ok",
+        "durationMs": 8
+      }
+    ],
+    "model_usage": null,
+    "draft_id": "77ea6404-766c-40e8-9c99-10e340d7e5ee",
+    "error_code": null
+  },
+  "events": [
+    {
+      "sequence": "103",
+      "id": "45c95731-7a5e-48d4-a5a8-1466d628214f",
+      "type": "user_request",
+      "timestamp": "2026-10-04T20:09:53.436Z",
+      "spanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "parentSpanId": null,
+      "durationMs": null,
+      "data": {
+        "groupId": "group-213ab089-c94b-4fde-a847-43ec5e58c9d6",
+        "request": "Prepare a synthetic reminder for human review",
+        "plannerMode": "scripted-demo"
+      }
+    },
+    {
+      "sequence": "104",
+      "id": "be55777e-d3ea-4adc-b92c-7cc9b51bef37",
+      "type": "permission_check",
+      "timestamp": "2026-10-04T20:09:53.448Z",
+      "spanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "parentSpanId": null,
+      "durationMs": null,
+      "data": {
+        "source": "database_rls",
+        "allowed": true,
+        "boundary": "run_creation"
+      }
+    },
+    {
+      "sequence": "105",
+      "id": "f0c07267-9b29-49af-b67e-62cd34810760",
+      "type": "model_started",
+      "timestamp": "2026-10-04T20:09:53.457Z",
+      "spanId": "02ea2434-b764-438f-b434-72ccc233b123",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "step": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "sequence": "106",
+      "id": "460003c5-30ac-483e-909c-b95466e7c5bb",
+      "type": "model_decision",
+      "timestamp": "2026-10-04T20:09:53.468Z",
+      "spanId": "02ea2434-b764-438f-b434-72ccc233b123",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 11,
+      "data": {
+        "step": 0,
+        "decision": {
+          "name": "list_bookings_requiring_attention",
+          "arguments": {
+            "filter": "unpaid_balances_and_missing_documents"
+          }
+        },
+        "modelUsage": null
+      }
+    },
+    {
+      "sequence": "107",
+      "id": "b15a8a10-6fb5-4646-ac87-a52a18bb2a71",
+      "type": "tool_selected",
+      "timestamp": "2026-10-04T20:09:53.479Z",
+      "spanId": "03f084af-0ae7-4e0c-bb0e-54a4b4e1e695",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "tool": "list_bookings_requiring_attention",
+        "attempt": 1,
+        "arguments": {
+          "filter": "unpaid_balances_and_missing_documents"
+        }
+      }
+    },
+    {
+      "sequence": "108",
+      "id": "ae61c612-75d6-4bc8-8e7d-d164f54252b0",
+      "type": "permission_check",
+      "timestamp": "2026-10-04T20:09:53.494Z",
+      "spanId": "03f084af-0ae7-4e0c-bb0e-54a4b4e1e695",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "allowed": true,
+        "boundary": "booking_read"
+      }
+    },
+    {
+      "sequence": "109",
+      "id": "0c6d44ca-68d0-4639-b146-7a9f46fa1b0b",
+      "type": "tool_result",
+      "timestamp": "2026-10-04T20:09:53.501Z",
+      "spanId": "03f084af-0ae7-4e0c-bb0e-54a4b4e1e695",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 22,
+      "data": {
+        "tool": "list_bookings_requiring_attention",
+        "output": [
+          {
+            "id": "booking-test",
+            "groupId": "group-213ab089-c94b-4fde-a847-43ec5e58c9d6",
+            "currency": "USD",
+            "balanceMinor": "150000",
+            "missingDocuments": [
+              "passport_copy"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "sequence": "110",
+      "id": "738a1a26-951d-499b-9e17-05a498977f50",
+      "type": "model_started",
+      "timestamp": "2026-10-04T20:09:53.511Z",
+      "spanId": "76d75650-d002-4f79-b338-75040decba75",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "step": 1,
+        "attempt": 1
+      }
+    },
+    {
+      "sequence": "111",
+      "id": "86c3e746-ad1a-406d-be60-619fe19f91b4",
+      "type": "model_decision",
+      "timestamp": "2026-10-04T20:09:53.519Z",
+      "spanId": "76d75650-d002-4f79-b338-75040decba75",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 8,
+      "data": {
+        "step": 1,
+        "decision": {
+          "name": "search_contract_sources",
+          "arguments": {
+            "query": "When must the remaining payment be settled and passport copies submitted?"
+          }
+        },
+        "modelUsage": null
+      }
+    },
+    {
+      "sequence": "112",
+      "id": "9b7ecf4f-573b-4fd9-8045-11a6f566092c",
+      "type": "tool_selected",
+      "timestamp": "2026-10-04T20:09:53.529Z",
+      "spanId": "0d6f3bef-aad0-4f27-b690-5b0635bc1b99",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "tool": "search_contract_sources",
+        "attempt": 1,
+        "arguments": {
+          "query": "When must the remaining payment be settled and passport copies submitted?"
+        }
+      }
+    },
+    {
+      "sequence": "113",
+      "id": "4f117888-5e16-4229-a291-0f2b19a303e0",
+      "type": "permission_check",
+      "timestamp": "2026-10-04T20:09:53.543Z",
+      "spanId": "0d6f3bef-aad0-4f27-b690-5b0635bc1b99",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "allowed": true,
+        "boundary": "source_search"
+      }
+    },
+    {
+      "sequence": "114",
+      "id": "19108723-4ee7-4e1a-89b3-dd14d4dd9a1e",
+      "type": "permission_check",
+      "timestamp": "2026-10-04T20:09:53.554Z",
+      "spanId": "0d6f3bef-aad0-4f27-b690-5b0635bc1b99",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "allowed": true,
+        "boundary": "source_expansion"
+      }
+    },
+    {
+      "sequence": "115",
+      "id": "6aa777b8-dbb9-4ce9-b34e-db8080faf966",
+      "type": "tool_result",
+      "timestamp": "2026-10-04T20:09:53.564Z",
+      "spanId": "0d6f3bef-aad0-4f27-b690-5b0635bc1b99",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 35,
+      "data": {
+        "tool": "search_contract_sources",
+        "output": [
+          {
+            "id": "d",
+            "excerpt": "Passport copies must be submitted by November 10, 2026.",
+            "section": "Section 5 — Required documents"
+          },
+          {
+            "id": "p",
+            "excerpt": "The remaining booking balance must be paid by November 15, 2026.",
+            "section": "Section 4 — Final payment"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": "116",
+      "id": "58532e84-2c79-4d54-a0d7-4773b18d4669",
+      "type": "model_started",
+      "timestamp": "2026-10-04T20:09:53.572Z",
+      "spanId": "90fbc2be-9e3a-4dae-aae5-f8820d00ccf8",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "step": 2,
+        "attempt": 1
+      }
+    },
+    {
+      "sequence": "117",
+      "id": "c0d0cabe-c841-45b9-897e-5d17a4ac52de",
+      "type": "model_decision",
+      "timestamp": "2026-10-04T20:09:53.581Z",
+      "spanId": "90fbc2be-9e3a-4dae-aae5-f8820d00ccf8",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 9,
+      "data": {
+        "step": 2,
+        "decision": {
+          "name": "prepare_reminder_draft",
+          "arguments": {
+            "delivery": "draft_only"
+          }
+        },
+        "modelUsage": null
+      }
+    },
+    {
+      "sequence": "118",
+      "id": "b16c2ce4-8d7a-4212-bb38-2d48e8de3914",
+      "type": "tool_selected",
+      "timestamp": "2026-10-04T20:09:53.589Z",
+      "spanId": "7450fed0-2733-4ca4-8f46-7604300709bd",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "tool": "prepare_reminder_draft",
+        "attempt": 1,
+        "arguments": {
+          "delivery": "draft_only"
+        }
+      }
+    },
+    {
+      "sequence": "119",
+      "id": "6cea5bd6-abab-4488-b94d-8b01e4faf540",
+      "type": "permission_check",
+      "timestamp": "2026-10-04T20:09:53.603Z",
+      "spanId": "7450fed0-2733-4ca4-8f46-7604300709bd",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "allowed": true,
+        "boundary": "draft_persistence"
+      }
+    },
+    {
+      "sequence": "120",
+      "id": "f957af52-4861-40fc-ad64-73cc33104a2a",
+      "type": "tool_result",
+      "timestamp": "2026-10-04T20:09:53.612Z",
+      "spanId": "7450fed0-2733-4ca4-8f46-7604300709bd",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 23,
+      "data": {
+        "tool": "prepare_reminder_draft",
+        "drafts": [
+          {
+            "body": "Hello,\n\nYour booking booking-test has an outstanding balance of USD 1500.00. Please complete payment by 2026-11-15.\nMissing documents: passport_copy. Please submit them by 2026-11-10.\n\nIf you have already completed these steps, please contact your travel agency.",
+            "subject": "Action needed for your booking booking-test",
+            "currency": "USD",
+            "bookingId": "booking-test",
+            "balanceMinor": "150000",
+            "missingDocuments": [
+              "passport_copy"
+            ],
+            "deliveryDestination": "[email]"
+          }
+        ],
+        "status": "pending_review",
+        "draftId": "77ea6404-766c-40e8-9c99-10e340d7e5ee",
+        "deadlines": [
+          {
+            "date": "2026-11-15",
+            "status": "supported",
+            "sources": [
+              {
+                "id": "p",
+                "page": 1,
+                "title": "Test contract",
+                "excerpt": "The remaining booking balance must be paid by November 15, 2026.",
+                "section": "Section 4 — Final payment",
+                "version": "1",
+                "contractId": "contract-test"
+              }
+            ],
+            "obligation": "payment"
+          },
+          {
+            "date": "2026-11-10",
+            "status": "supported",
+            "sources": [
+              {
+                "id": "d",
+                "page": 1,
+                "title": "Test contract",
+                "excerpt": "Passport copies must be submitted by November 10, 2026.",
+                "section": "Section 5 — Required documents",
+                "version": "1",
+                "contractId": "contract-test"
+              }
+            ],
+            "obligation": "documents"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": "121",
+      "id": "3bde247c-e02a-4119-93ef-4dfc9b125f89",
+      "type": "final_answer",
+      "timestamp": "2026-10-04T20:09:53.619Z",
+      "spanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "parentSpanId": null,
+      "durationMs": 193,
+      "data": {
+        "result": {
+          "runId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+          "drafts": [
+            {
+              "body": "Hello,\n\nYour booking booking-test has an outstanding balance of USD 1500.00. Please complete payment by 2026-11-15.\nMissing documents: passport_copy. Please submit them by 2026-11-10.\n\nIf you have already completed these steps, please contact your travel agency.",
+              "subject": "Action needed for your booking booking-test",
+              "currency": "USD",
+              "bookingId": "booking-test",
+              "balanceMinor": "150000",
+              "missingDocuments": [
+                "passport_copy"
+              ],
+              "deliveryDestination": "[email]"
+            }
+          ],
+          "events": [
+            {
+              "name": "list_bookings_requiring_attention",
+              "status": "ok",
+              "durationMs": 22
+            },
+            {
+              "name": "search_contract_sources",
+              "status": "ok",
+              "durationMs": 35
+            },
+            {
+              "name": "prepare_reminder_draft",
+              "status": "ok",
+              "durationMs": 8
+            }
+          ],
+          "status": "pending_review",
+          "draftId": "77ea6404-766c-40e8-9c99-10e340d7e5ee",
+          "deadlines": [
+            {
+              "date": "2026-11-15",
+              "status": "supported",
+              "sources": [
+                {
+                  "id": "p",
+                  "page": 1,
+                  "title": "Test contract",
+                  "excerpt": "The remaining booking balance must be paid by November 15, 2026.",
+                  "section": "Section 4 — Final payment",
+                  "version": "1",
+                  "contractId": "contract-test"
+                }
+              ],
+              "obligation": "payment"
+            },
+            {
+              "date": "2026-11-10",
+              "status": "supported",
+              "sources": [
+                {
+                  "id": "d",
+                  "page": 1,
+                  "title": "Test contract",
+                  "excerpt": "Passport copies must be submitted by November 10, 2026.",
+                  "section": "Section 5 — Required documents",
+                  "version": "1",
+                  "contractId": "contract-test"
+                }
+              ],
+              "obligation": "documents"
+            }
+          ],
+          "expiresAt": {},
+          "modelUsage": null,
+          "plannerMode": "scripted-demo",
+          "deliveryEnabled": false,
+          "estimatedProviderCostUsd": 0
+        },
+        "retries": 0,
+        "modelUsage": null
+      }
+    },
+    {
+      "sequence": "122",
+      "id": "61c9a9aa-b8ef-461f-8a94-7dfc8dccb002",
+      "type": "permission_check",
+      "timestamp": "2026-10-04T20:09:53.655Z",
+      "spanId": "a76305bd-45b9-473a-893a-636daf30868f",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": null,
+      "data": {
+        "checks": [
+          "creator",
+          "current_membership",
+          "group_access",
+          "expiry",
+          "content_hash",
+          "current_booking",
+          "current_contract"
+        ],
+        "allowed": true,
+        "draftId": "77ea6404-766c-40e8-9c99-10e340d7e5ee",
+        "boundary": "approval"
+      }
+    },
+    {
+      "sequence": "123",
+      "id": "b0c77c4e-0e4b-482d-b9b4-1f3d7e7c61e9",
+      "type": "approval_confirmed",
+      "timestamp": "2026-10-04T20:09:53.663Z",
+      "spanId": "a76305bd-45b9-473a-893a-636daf30868f",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 18,
+      "data": {
+        "jobId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+        "status": "queued",
+        "draftId": "77ea6404-766c-40e8-9c99-10e340d7e5ee",
+        "reviewHash": "01819697448b5f090b735497557e88e0dd5a7eb1efd1e055b7b89d3fa37222b4"
+      }
+    },
+    {
+      "sequence": "124",
+      "id": "30cd14ae-4dec-4a88-b9ab-ed430c4e6f36",
+      "type": "delivery_claimed",
+      "timestamp": "2026-10-04T20:09:53.676Z",
+      "spanId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 0,
+      "data": {
+        "jobId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+        "attempt": 1,
+        "draftId": "77ea6404-766c-40e8-9c99-10e340d7e5ee",
+        "retries": 0
+      }
+    },
+    {
+      "sequence": "125",
+      "id": "0be2973a-872a-4ab3-a285-b1f2309ee859",
+      "type": "permission_check",
+      "timestamp": "2026-10-04T20:09:53.694Z",
+      "spanId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 21,
+      "data": {
+        "jobId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+        "checks": [
+          "approval",
+          "current_membership",
+          "group_access",
+          "expiry",
+          "content_hash",
+          "current_booking",
+          "current_contract"
+        ],
+        "allowed": true,
+        "draftId": "77ea6404-766c-40e8-9c99-10e340d7e5ee",
+        "boundary": "delivery"
+      }
+    },
+    {
+      "sequence": "126",
+      "id": "22d8516f-2d63-44f0-9da6-4777a0b7bfaf",
+      "type": "delivery_attempt",
+      "timestamp": "2026-10-04T20:09:53.718Z",
+      "spanId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 45,
+      "data": {
+        "jobId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+        "attempt": 1,
+        "draftId": "77ea6404-766c-40e8-9c99-10e340d7e5ee",
+        "bookingId": "booking-test",
+        "idempotencyKey": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad-booking-test"
+      }
+    },
+    {
+      "sequence": "127",
+      "id": "0c1d1984-790a-4151-a372-a7cb7131ce04",
+      "type": "delivery_result",
+      "timestamp": "2026-10-04T20:09:53.744Z",
+      "spanId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 71,
+      "data": {
+        "jobId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+        "status": "sent",
+        "draftId": "77ea6404-766c-40e8-9c99-10e340d7e5ee",
+        "bookingId": "booking-test"
+      }
+    },
+    {
+      "sequence": "128",
+      "id": "33a81058-0401-4a39-9825-ea68f0f1dec6",
+      "type": "delivery_finished",
+      "timestamp": "2026-10-04T20:09:53.758Z",
+      "spanId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+      "parentSpanId": "6a53b288-cb71-4469-8553-cfce4ae30500",
+      "durationMs": 81,
+      "data": {
+        "jobId": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+        "status": "sent",
+        "draftId": "77ea6404-766c-40e8-9c99-10e340d7e5ee",
+        "retries": 0,
+        "outcomes": [
+          {
+            "status": "sent",
+            "bookingId": "booking-test"
+          }
+        ]
+      }
+    }
+  ],
+  "delivery": {
+    "id": "0cd0a0d8-4830-4c60-b1d0-568162ba33ad",
+    "status": "sent",
+    "created_at": "2026-10-04T20:09:53.643Z",
+    "started_at": "2026-10-04T20:09:53.669Z",
+    "finished_at": "2026-10-04T20:09:53.749Z",
+    "outcomes": [
+      {
+        "status": "sent",
+        "bookingId": "booking-test"
+      }
+    ],
+    "reason": null
+  }
+}

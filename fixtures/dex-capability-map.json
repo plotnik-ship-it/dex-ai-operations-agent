@@ -1,0 +1,272 @@
+{
+  "reviewedAt": "2026-10-04",
+  "method": "Read-only inspection of local GroupDeck declarations and dispatcher. This is not a deployed-runtime audit.",
+  "declaredTools": 33,
+  "implementationOrigin": "Independent TypeScript/PostgreSQL demo; no GroupDeck imports, credentials, customer records or copied handlers.",
+  "tools": [
+    {
+      "line": 42,
+      "name": "get_group_review",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 50,
+      "name": "get_group_tasks",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 58,
+      "name": "get_group_rates",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 66,
+      "name": "get_group_list",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 75,
+      "name": "get_group_analytics",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 89,
+      "name": "get_pending_payments",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "list_bookings_requiring_attention",
+      "executionVerified": false
+    },
+    {
+      "line": 103,
+      "name": "get_missing_documents",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "list_bookings_requiring_attention",
+      "executionVerified": false
+    },
+    {
+      "line": 117,
+      "name": "get_booking_details",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 136,
+      "name": "draft_payment_reminder",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "prepare_reminder_draft",
+      "executionVerified": false
+    },
+    {
+      "line": 165,
+      "name": "draft_custom_message",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 194,
+      "name": "get_follow_up_candidates",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 213,
+      "name": "get_daily_briefing",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 222,
+      "name": "get_upcoming_deadlines",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "search_contract_sources (independent contract RAG)",
+      "executionVerified": false
+    },
+    {
+      "line": 236,
+      "name": "draft_create_booking",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 278,
+      "name": "draft_payment_link",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 305,
+      "name": "get_cross_group_analytics",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 319,
+      "name": "search_travelers",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 333,
+      "name": "get_communication_history",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 355,
+      "name": "generate_group_report",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 369,
+      "name": "get_cabin_status",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 384,
+      "name": "get_payment_risk",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 398,
+      "name": "draft_welcome_email",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 416,
+      "name": "get_checkin_status",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 430,
+      "name": "get_revenue_forecast",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 445,
+      "name": "draft_record_payment",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 475,
+      "name": "draft_assign_cabin",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 497,
+      "name": "draft_edit_booking",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 524,
+      "name": "get_agency_insights",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 539,
+      "name": "generate_agency_report",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 554,
+      "name": "send_voucher",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 573,
+      "name": "draft_create_automation",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 620,
+      "name": "draft_update_client_profile",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    },
+    {
+      "line": 695,
+      "name": "get_travel_compliance",
+      "source": "functions/src/support/dexTools.js",
+      "dispatchSource": "functions/src/support/dexTools.js:3377-3452",
+      "demoMapping": "reference_only",
+      "executionVerified": false
+    }
+  ]
+}

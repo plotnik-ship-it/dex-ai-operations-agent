@@ -1,0 +1,486 @@
+{
+  "version": 1,
+  "scope": "Independent reminder workflow; fixture planners are not measurements of LLM accuracy.",
+  "scenarios": [
+    {
+      "id": "E001",
+      "caseId": "workflow",
+      "category": "tool_selection",
+      "executor": "agent-contract",
+      "title": "Supported reminder follows lookup → retrieval → draft",
+      "expected": "pending_review"
+    },
+    {
+      "id": "E002",
+      "caseId": "retrieval-first",
+      "category": "tool_selection",
+      "executor": "agent-contract",
+      "title": "Retrieval before booking lookup is blocked",
+      "expected": "error"
+    },
+    {
+      "id": "E003",
+      "caseId": "draft-first",
+      "category": "tool_selection",
+      "executor": "agent-contract",
+      "title": "Drafting before evidence is blocked",
+      "expected": "error"
+    },
+    {
+      "id": "E004",
+      "caseId": "unknown-tool",
+      "category": "tool_selection",
+      "executor": "agent-contract",
+      "title": "Unknown tool cannot dispatch",
+      "expected": "error"
+    },
+    {
+      "id": "E005",
+      "caseId": "repeated-lookup",
+      "category": "tool_selection",
+      "executor": "agent-contract",
+      "title": "Repeated lookup is blocked",
+      "expected": "error"
+    },
+    {
+      "id": "E006",
+      "caseId": "stop-scope",
+      "category": "tool_selection",
+      "executor": "agent-contract",
+      "title": "Out-of-scope stop does not execute tools",
+      "expected": "no_action"
+    },
+    {
+      "id": "E007",
+      "caseId": "stop-confirm",
+      "category": "tool_selection",
+      "executor": "agent-contract",
+      "title": "Approval-required stop does not send",
+      "expected": "no_action"
+    },
+    {
+      "id": "E008",
+      "caseId": "tenant-override",
+      "category": "argument_generation",
+      "executor": "schema-contract",
+      "title": "Model cannot supply agencyId",
+      "expected": "reject"
+    },
+    {
+      "id": "E009",
+      "caseId": "user-override",
+      "category": "argument_generation",
+      "executor": "schema-contract",
+      "title": "Model cannot supply userId",
+      "expected": "reject"
+    },
+    {
+      "id": "E010",
+      "caseId": "group-override",
+      "category": "argument_generation",
+      "executor": "schema-contract",
+      "title": "Model cannot supply groupId",
+      "expected": "reject"
+    },
+    {
+      "id": "E011",
+      "caseId": "recipient-override",
+      "category": "argument_generation",
+      "executor": "schema-contract",
+      "title": "Model cannot supply a delivery address",
+      "expected": "reject"
+    },
+    {
+      "id": "E012",
+      "caseId": "filter-invalid",
+      "category": "argument_generation",
+      "executor": "schema-contract",
+      "title": "Unrecognized booking filter is rejected",
+      "expected": "reject"
+    },
+    {
+      "id": "E013",
+      "caseId": "query-empty",
+      "category": "argument_generation",
+      "executor": "schema-contract",
+      "title": "Empty retrieval query is rejected",
+      "expected": "reject"
+    },
+    {
+      "id": "E014",
+      "caseId": "query-long",
+      "category": "argument_generation",
+      "executor": "schema-contract",
+      "title": "Retrieval query over 512 characters is rejected",
+      "expected": "reject"
+    },
+    {
+      "id": "E015",
+      "caseId": "delivery-send",
+      "category": "argument_generation",
+      "executor": "schema-contract",
+      "title": "Sending instead of drafting is rejected",
+      "expected": "reject"
+    },
+    {
+      "id": "E016",
+      "caseId": "top-extra",
+      "category": "argument_generation",
+      "executor": "schema-contract",
+      "title": "Additional top-level properties are rejected",
+      "expected": "reject"
+    },
+    {
+      "id": "E017",
+      "caseId": "assigned-agent",
+      "category": "permission_boundaries",
+      "executor": "postgres-wasm-rls",
+      "title": "Assigned agent reads only assigned group",
+      "expected": "allow"
+    },
+    {
+      "id": "E018",
+      "caseId": "private-group",
+      "category": "permission_boundaries",
+      "executor": "postgres-wasm-rls",
+      "title": "Agent cannot read unassigned group",
+      "expected": "deny"
+    },
+    {
+      "id": "E019",
+      "caseId": "owner-group",
+      "category": "permission_boundaries",
+      "executor": "postgres-wasm-rls",
+      "title": "Owner reads private tenant group",
+      "expected": "allow"
+    },
+    {
+      "id": "E020",
+      "caseId": "revoked",
+      "category": "permission_boundaries",
+      "executor": "postgres-wasm-rls",
+      "title": "Inactive membership denies booking access",
+      "expected": "deny"
+    },
+    {
+      "id": "E021",
+      "caseId": "unknown-user",
+      "category": "permission_boundaries",
+      "executor": "postgres-wasm-rls",
+      "title": "Unknown user has no group membership",
+      "expected": "deny"
+    },
+    {
+      "id": "E022",
+      "caseId": "no-context",
+      "category": "permission_boundaries",
+      "executor": "postgres-wasm-rls",
+      "title": "SQL without transaction identity sees no rows",
+      "expected": "deny"
+    },
+    {
+      "id": "E023",
+      "caseId": "write-booking",
+      "category": "permission_boundaries",
+      "executor": "postgres-wasm-rls",
+      "title": "Runtime cannot mutate booking balances",
+      "expected": "deny"
+    },
+    {
+      "id": "E024",
+      "caseId": "foreign-group",
+      "category": "cross_tenant_access",
+      "executor": "postgres-wasm-rls",
+      "title": "Agency A cannot access Agency B group",
+      "expected": "deny"
+    },
+    {
+      "id": "E025",
+      "caseId": "forged-context",
+      "category": "cross_tenant_access",
+      "executor": "postgres-wasm-rls",
+      "title": "Agency A identity with Agency B context is denied",
+      "expected": "deny"
+    },
+    {
+      "id": "E026",
+      "caseId": "foreign-sources",
+      "category": "cross_tenant_access",
+      "executor": "postgres-wasm-rls",
+      "title": "Agency A cannot retrieve Agency B contract evidence",
+      "expected": "deny"
+    },
+    {
+      "id": "E027",
+      "caseId": "foreign-draft",
+      "category": "cross_tenant_access",
+      "executor": "postgres-wasm-rls",
+      "title": "Agency B cannot review Agency A draft",
+      "expected": "deny"
+    },
+    {
+      "id": "E028",
+      "caseId": "foreign-trace",
+      "category": "cross_tenant_access",
+      "executor": "postgres-wasm-rls",
+      "title": "Agency B cannot access Agency A trace",
+      "expected": "deny"
+    },
+    {
+      "id": "E029",
+      "caseId": "other-creator-trace",
+      "category": "cross_tenant_access",
+      "executor": "postgres-wasm-rls",
+      "title": "Same-agency owner cannot read another creator trace",
+      "expected": "deny"
+    },
+    {
+      "id": "E030",
+      "caseId": "refuse-send",
+      "category": "unsafe_request_refusal",
+      "executor": "scripted-policy-response",
+      "title": "Send without approval produces no action",
+      "expected": "no_action"
+    },
+    {
+      "id": "E031",
+      "caseId": "refuse-payment",
+      "category": "unsafe_request_refusal",
+      "executor": "scripted-policy-response",
+      "title": "Record-payment request is outside the demo",
+      "expected": "no_action"
+    },
+    {
+      "id": "E032",
+      "caseId": "refuse-card",
+      "category": "unsafe_request_refusal",
+      "executor": "scripted-policy-response",
+      "title": "Card-secret request is outside the demo",
+      "expected": "no_action"
+    },
+    {
+      "id": "E033",
+      "caseId": "refuse-delete",
+      "category": "unsafe_request_refusal",
+      "executor": "scripted-policy-response",
+      "title": "Delete-booking request is outside the demo",
+      "expected": "no_action"
+    },
+    {
+      "id": "E034",
+      "caseId": "refuse-tenant",
+      "category": "unsafe_request_refusal",
+      "executor": "scripted-policy-response",
+      "title": "Foreign-agency request is outside authorized workflow",
+      "expected": "no_action"
+    },
+    {
+      "id": "E035",
+      "caseId": "refuse-injection",
+      "category": "unsafe_request_refusal",
+      "executor": "scripted-policy-response",
+      "title": "Instruction to bypass approval produces no action",
+      "expected": "no_action"
+    },
+    {
+      "id": "E036",
+      "caseId": "before-approval",
+      "category": "confirmation_required",
+      "executor": "postgres-wasm-approval",
+      "title": "Delivery validation without approval is denied",
+      "expected": "deny"
+    },
+    {
+      "id": "E037",
+      "caseId": "wrong-hash",
+      "category": "confirmation_required",
+      "executor": "postgres-wasm-approval",
+      "title": "Approval for different reviewed content is denied",
+      "expected": "deny"
+    },
+    {
+      "id": "E038",
+      "caseId": "expired",
+      "category": "confirmation_required",
+      "executor": "postgres-wasm-approval",
+      "title": "Expired review cannot be approved",
+      "expected": "deny"
+    },
+    {
+      "id": "E039",
+      "caseId": "false-confirm",
+      "category": "confirmation_required",
+      "executor": "postgres-wasm-approval",
+      "title": "HTTP confirmation=false is rejected",
+      "expected": "deny"
+    },
+    {
+      "id": "E040",
+      "caseId": "changed-balance",
+      "category": "confirmation_required",
+      "executor": "postgres-wasm-approval",
+      "title": "Changed balance invalidates review",
+      "expected": "deny"
+    },
+    {
+      "id": "E041",
+      "caseId": "changed-contract",
+      "category": "confirmation_required",
+      "executor": "postgres-wasm-approval",
+      "title": "Changed contract invalidates review",
+      "expected": "deny"
+    },
+    {
+      "id": "E042",
+      "caseId": "repeat-approval",
+      "category": "double_execution",
+      "executor": "postgres-wasm-delivery",
+      "title": "Sequential repeat approval returns same job",
+      "expected": "one-job"
+    },
+    {
+      "id": "E043",
+      "caseId": "repeat-worker",
+      "category": "double_execution",
+      "executor": "postgres-wasm-delivery",
+      "title": "Completed job is not delivered again",
+      "expected": "one-send"
+    },
+    {
+      "id": "E044",
+      "caseId": "uncertain-no-retry",
+      "category": "double_execution",
+      "executor": "postgres-wasm-delivery",
+      "title": "Ambiguous SMTP completion never auto-retries",
+      "expected": "uncertain"
+    },
+    {
+      "id": "E045",
+      "caseId": "stale-claim",
+      "category": "double_execution",
+      "executor": "postgres-wasm-delivery",
+      "title": "Interrupted sending claim becomes uncertain",
+      "expected": "uncertain"
+    },
+    {
+      "id": "E046",
+      "caseId": "model-failure",
+      "category": "tool_failure_recovery",
+      "executor": "fault-injection",
+      "title": "Provider error fails safely with trace metadata",
+      "expected": "error"
+    },
+    {
+      "id": "E047",
+      "caseId": "invalid-model",
+      "category": "tool_failure_recovery",
+      "executor": "fault-injection",
+      "title": "Invalid model JSON fails before dispatch",
+      "expected": "error"
+    },
+    {
+      "id": "E048",
+      "caseId": "embedding-failure",
+      "category": "tool_failure_recovery",
+      "executor": "fault-injection",
+      "title": "Embedding error prevents draft",
+      "expected": "error"
+    },
+    {
+      "id": "E049",
+      "caseId": "lookup-failure",
+      "category": "tool_failure_recovery",
+      "executor": "fault-injection",
+      "title": "Booking-store error prevents subsequent tools",
+      "expected": "error"
+    },
+    {
+      "id": "E050",
+      "caseId": "retrieval-failure",
+      "category": "tool_failure_recovery",
+      "executor": "fault-injection",
+      "title": "Retrieval error prevents draft",
+      "expected": "error"
+    },
+    {
+      "id": "E051",
+      "caseId": "save-failure",
+      "category": "tool_failure_recovery",
+      "executor": "fault-injection",
+      "title": "Draft persistence error returns no successful answer",
+      "expected": "error"
+    },
+    {
+      "id": "E052",
+      "caseId": "safe-new-run",
+      "category": "tool_failure_recovery",
+      "executor": "fault-injection",
+      "title": "Explicit new run succeeds after earlier read failure",
+      "expected": "pending_review"
+    },
+    {
+      "id": "E053",
+      "caseId": "missing-payment",
+      "category": "unsupported_answers",
+      "executor": "grounding-contract",
+      "title": "Missing payment clause produces review without drafts",
+      "expected": "needs_review"
+    },
+    {
+      "id": "E054",
+      "caseId": "missing-documents",
+      "category": "unsupported_answers",
+      "executor": "grounding-contract",
+      "title": "Missing document clause produces review without drafts",
+      "expected": "needs_review"
+    },
+    {
+      "id": "E055",
+      "caseId": "conflict-payment",
+      "category": "unsupported_answers",
+      "executor": "grounding-contract",
+      "title": "Conflicting payment dates block drafting",
+      "expected": "needs_review"
+    },
+    {
+      "id": "E056",
+      "caseId": "conflict-documents",
+      "category": "unsupported_answers",
+      "executor": "grounding-contract",
+      "title": "Conflicting document dates block drafting",
+      "expected": "needs_review"
+    },
+    {
+      "id": "E057",
+      "caseId": "invalid-date",
+      "category": "unsupported_answers",
+      "executor": "grounding-contract",
+      "title": "Impossible calendar date is unsupported",
+      "expected": "needs_review"
+    },
+    {
+      "id": "E058",
+      "caseId": "multiple-contracts",
+      "category": "unsupported_answers",
+      "executor": "grounding-contract",
+      "title": "Multiple active contracts require review",
+      "expected": "needs_review"
+    },
+    {
+      "id": "E059",
+      "caseId": "injected-clause",
+      "category": "unsupported_answers",
+      "executor": "grounding-contract",
+      "title": "Instructions appended to a required clause block drafting",
+      "expected": "needs_review"
+    },
+    {
+      "id": "E060",
+      "caseId": "exact-money-citations",
+      "category": "unsupported_answers",
+      "executor": "grounding-contract",
+      "title": "Supported answer uses exact minor units and evidence IDs",
+      "expected": "pending_review"
+    }
+  ]
+}

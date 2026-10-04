@@ -1,0 +1,72 @@
+{
+  "recordedAt": "2026-10-04T20:45:45.300Z",
+  "traceId": "0ab39b0a-4b3f-444f-bacf-80db043a55da",
+  "plannerMode": "ollama-local",
+  "model": "qwen3:4b",
+  "deliveryStatus": "sent",
+  "eventCount": 26,
+  "marks": [
+    {
+      "scene": "problem",
+      "seconds": 0
+    },
+    {
+      "scene": "request",
+      "seconds": 8.01
+    },
+    {
+      "scene": "evidence",
+      "seconds": 39.471
+    },
+    {
+      "scene": "tools",
+      "seconds": 51.485
+    },
+    {
+      "scene": "approval",
+      "seconds": 64.489
+    },
+    {
+      "scene": "inbox",
+      "seconds": 77.498
+    },
+    {
+      "scene": "trace",
+      "seconds": 88.5
+    },
+    {
+      "scene": "events",
+      "seconds": 101.509
+    },
+    {
+      "scene": "reliability",
+      "seconds": 109.524
+    }
+  ],
+  "source": "Continuous local browser recording through agent-browser 0.38.2. Trace inspection is a separately labeled snapshot viewer, not an added product feature.",
+  "audio": "No voiceover; English burned-in captions will be added.",
+  "renderedAt": "2026-10-04T20:47:18.160Z",
+  "sourceDurationSeconds": 119,
+  "outputDurationSeconds": 110,
+  "playbackScale": 0.9243697478991597,
+  "captionLanguage": "English",
+  "voiceover": false,
+  "output": "docs/demo/dex-demo.mp4",
+  "ffprobe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 960,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "format": {
+      "duration": "110.000000",
+      "size": "1877293"
+    }
+  },
+  "editing": "Continuous browser capture normalized to 110 seconds. Burned-in English captions; original event durations remain visible and unchanged."
+}

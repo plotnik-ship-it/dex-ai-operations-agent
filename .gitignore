@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+coverage/
+cdk.out/
+
+.cache/
+docs/demo/raw.webm
+docs/evals/recording-check.*
+docs/evals/video-preview.png
+docs/demo/*-check.jpg

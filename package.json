@@ -1,0 +1,53 @@
+{
+  "name": "dex-ai-operations-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && tsc -p web/tsconfig.json && vite build web --outDir ../dist/public",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "dev": "node --env-file=.env --import tsx src/api.ts",
+    "worker": "node --env-file=.env --import tsx src/worker.ts",
+    "check": "tsc --noEmit && tsc -p web/tsconfig.json",
+    "test:db": "npm run build && node scripts/test-db.mjs",
+    "demo:offline": "npm run build && node scripts/demo-offline.mjs",
+    "index:contracts": "npm run build && node scripts/index-contracts.mjs",
+    "demo:agent": "npm run build && node scripts/demo-agent.mjs",
+    "review": "npm run build && node scripts/review-draft.mjs",
+    "eval:llm": "npm run build && node --env-file=.env scripts/eval-llm.mjs",
+    "eval:adversarial": "npm run build && node --env-file=.env scripts/eval-adversarial.mjs",
+    "test:security": "npm run build && node scripts/test-security.mjs",
+    "setup:demo": "node scripts/init-demo.mjs",
+    "eval:matrix": "npm run build && node scripts/eval-matrix.mjs",
+    "eval:model-matrix": "npm run build && node --env-file=.env scripts/eval-model-matrix.mjs",
+    "trace": "node --env-file=.env scripts/inspect-trace.mjs",
+    "verify:trace": "node --env-file=.env scripts/verify-api-trace.mjs",
+    "report:evals": "node scripts/report-evals.mjs",
+    "demo:record": "node scripts/record-demo.mjs",
+    "demo:render": "node scripts/render-demo.mjs"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.1.2",
+    "@fastify/static": "^10.1.5",
+    "@huggingface/transformers": "^4.3.0",
+    "fastify": "^5.0.0",
+    "nodemailer": "^10.0.14",
+    "pg": "^8.13.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@electric-sql/pglite-pgvector": "^0.0.9",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^24.0.0",
+    "@types/nodemailer": "^8.0.2",
+    "@types/pg": "^8.11.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vite": "^8.3.2"
+  }
+}

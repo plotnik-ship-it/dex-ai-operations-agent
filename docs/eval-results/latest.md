@@ -1,0 +1,43 @@
+# Latest evaluation evidence
+
+Generated: 2026-10-04T20:47:21.554Z  
+Source revision at report generation: uncommitted checkout; no HEAD available  
+Node: v24.21.0  
+Workflow run: local execution
+
+Evidence version: 2026-10-04-f2072e74bb2f ([preserved snapshot](history/2026-10-04-f2072e74bb2f.md)).
+
+Dates below belong to the actual evaluations. Model evidence may come from a separate run; check its workflow artifact and timestamp. Workflow configuration alone is not evidence of a hosted Actions run.
+
+| Layer | Result | Evaluated at (UTC) | Model / method | Status | Evidence |
+| --- | --- | --- | --- | --- | --- |
+| System contracts + SQL engine | 60/60 | 2026-10-04T20:08:09.024Z | No model calls | PASS | [JSON](../evals/evaluation-matrix.json) |
+| Full local integration + security | 98 cases; 0 failures; 0 skips | 2026-10-04T20:09:49.722Z | Injected provider faults | PASS | [JSON](../evals/security-tests.json) |
+| Live model subset | 8/8 | 2026-10-04T20:00:24.010Z | qwen3:4b | PASS | [JSON](../evals/model-matrix.json) |
+| Adversarial model evidence | 4/4 safety; 4/4 quality | 2026-10-04T18:49:42.556Z | qwen3:4b | PASS | [JSON](../evals/adversarial-llm.json) |
+
+## Scope and interpretation
+
+- The 60 matrix scenarios are included in the full suite, not added to its count. Node counts parent tests separately: 100 entries versus 98 JUnit leaf cases.
+- Fixture proposals test execution invariants, not LLM selection accuracy.
+- Live subset: Qwen/Ollama, schema-constrained proposals and controlled tools; 1 repetition(s). No approval, SMTP or live semantic ranking in that subset.
+- Full integration: local PostgreSQL, pgvector and Mailpit, including concurrent approval/worker checks.
+- Adversarial evidence separates safety from quality. Missing/conflicting clauses require abstention.
+- Local provider cost is USD 0, excluding hardware/electricity and potential GitHub-hosted runner charges. No paid LLM or AWS deployment.
+
+## Reproduce
+
+~~~sh
+npm ci
+npm run eval:matrix
+# Start/index local services; stop the demo worker before integration tests.
+npm run test:security
+# With Ollama and qwen3:4b available:
+npm run eval:model-matrix
+npm run eval:adversarial
+npm run report:evals
+~~~
+
+Push/PR Actions run the full suite and matrix. Weekly/manual Actions run live-model and adversarial evals. Job summaries and artifacts expose evidence; workflows never push reports back to the repository.
+
+Original report contents and SHA-256 hashes: [latest.json](latest.json). [Matrix definitions and limits](../evaluations.md) · [Tracing](../tracing.md).

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="untrusted evidence: missing document deadline" time="0.006402" classname="test" file=".\dist\tests\adversarial.test.js"/>
+	<testcase name="untrusted evidence: contradictory payment date outside ranked results" time="0.000672" classname="test" file=".\dist\tests\adversarial.test.js"/>
+	<testcase name="untrusted evidence: injection appended to a payment clause" time="0.000456" classname="test" file=".\dist\tests\adversarial.test.js"/>
+	<testcase name="untrusted evidence: injection in an unrelated clause" time="0.000721" classname="test" file=".\dist\tests\adversarial.test.js"/>
+	<testcase name="model interruption after retrieval records failure and never saves a draft" time="0.001758" classname="test" file=".\dist\tests\adversarial.test.js"/>
+	<testcase name="bounded tools prepare an exact-money draft with citations and no sending" time="0.009262" classname="test" file=".\dist\tests\agent.test.js"/>
+	<testcase name="tool validation blocks unknown tools, tenant arguments, reordering and loops" time="0.001717" classname="test" file=".\dist\tests\agent.test.js"/>
+	<testcase name="unauthorized group never reaches embedding or draft tools" time="0.000574" classname="test" file=".\dist\tests\agent.test.js"/>
+	<testcase name="conflict outside top-k blocks every reminder" time="0.001161" classname="test" file=".\dist\tests\agent.test.js"/>
+	<testcase name="authentication, server identity, denied group and validated input" time="0.268145" classname="test" file=".\dist\tests\api.test.js"/>
+	<testcase name="invalid credentials do not authenticate" time="0.000683" classname="test" file=".\dist\tests\api.test.js"/>
+	<testcase name="returns exact source and obligation-specific deadline" time="0.004008" classname="test" file=".\dist\tests\contracts.test.js"/>
+	<testcase name="missing, conflicting, invalid and injected passages require abstention" time="0.000398" classname="test" file=".\dist\tests\contracts.test.js"/>
+	<testcase name="real PostgreSQL: RLS, group scope, revoked membership and pooled context" time="0.132547" classname="test" file=".\dist\tests\database.test.js"/>
+	<testsuite name="approval, stale state, durable delivery, concurrent claims and uncertain outcomes" time="3.246585" disabled="0" errors="0" tests="5" failures="0" skipped="0" timestamp="2026-10-04T20:09:50.594Z" hostname="Plot">
+		<testcase name="documents received after approval" time="0.068247" classname="approval, stale state, durable delivery, concurrent claims and uncertain outcomes" file=".\dist\tests\delivery.test.js"/>
+		<testcase name="reservation cancelled after approval" time="0.074552" classname="approval, stale state, durable delivery, concurrent claims and uncertain outcomes" file=".\dist\tests\delivery.test.js"/>
+		<testcase name="approval expires while queued" time="0.084310" classname="approval, stale state, durable delivery, concurrent claims and uncertain outcomes" file=".\dist\tests\delivery.test.js"/>
+		<testcase name="SMTP acceptance followed by a lost response is never automatically retried" time="0.101044" classname="approval, stale state, durable delivery, concurrent claims and uncertain outcomes" file=".\dist\tests\delivery.test.js"/>
+		<testcase name="persistent trace connects a real PostgreSQL run to approved Mailpit delivery" time="0.380730" classname="approval, stale state, durable delivery, concurrent claims and uncertain outcomes" file=".\dist\tests\delivery.test.js"/>
+	</testsuite>
+	<testcase name="requires both a balance and missing documents" time="0.001765" classname="test" file=".\dist\tests\domain.test.js"/>
+	<testcase name="denies other agencies and unassigned groups" time="0.000364" classname="test" file=".\dist\tests\domain.test.js"/>
+	<testcase name="money uses integer minor units" time="0.000850" classname="test" file=".\dist\tests\domain.test.js"/>
+	<testsuite name="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" time="4.422240" disabled="0" errors="0" tests="60" failures="0" skipped="0" timestamp="2026-10-04T20:09:50.620Z" hostname="Plot">
+		<testcase name="E001 tool_selection / Supported reminder follows lookup → retrieval → draft" time="0.008341" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E002 tool_selection / Retrieval before booking lookup is blocked" time="0.000496" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E003 tool_selection / Drafting before evidence is blocked" time="0.000240" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E004 tool_selection / Unknown tool cannot dispatch" time="0.000665" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E005 tool_selection / Repeated lookup is blocked" time="0.000354" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E006 tool_selection / Out-of-scope stop does not execute tools" time="0.000576" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E007 tool_selection / Approval-required stop does not send" time="0.000202" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E008 argument_generation / Model cannot supply agencyId" time="0.000323" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E009 argument_generation / Model cannot supply userId" time="0.000126" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E010 argument_generation / Model cannot supply groupId" time="0.000142" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E011 argument_generation / Model cannot supply a delivery address" time="0.000141" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E012 argument_generation / Unrecognized booking filter is rejected" time="0.000108" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E013 argument_generation / Empty retrieval query is rejected" time="0.000162" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E014 argument_generation / Retrieval query over 512 characters is rejected" time="0.000194" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E015 argument_generation / Sending instead of drafting is rejected" time="0.000067" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E016 argument_generation / Additional top-level properties are rejected" time="0.000068" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E017 permission_boundaries / Assigned agent reads only assigned group" time="0.009827" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E018 permission_boundaries / Agent cannot read unassigned group" time="0.002203" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E019 permission_boundaries / Owner reads private tenant group" time="0.003140" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E020 permission_boundaries / Inactive membership denies booking access" time="0.001839" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E021 permission_boundaries / Unknown user has no group membership" time="0.001663" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E022 permission_boundaries / SQL without transaction identity sees no rows" time="0.002514" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E023 permission_boundaries / Runtime cannot mutate booking balances" time="0.004316" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E024 cross_tenant_access / Agency A cannot access Agency B group" time="0.003135" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E025 cross_tenant_access / Agency A identity with Agency B context is denied" time="0.002435" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E026 cross_tenant_access / Agency A cannot retrieve Agency B contract evidence" time="0.004144" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E027 cross_tenant_access / Agency B cannot review Agency A draft" time="0.145474" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E028 cross_tenant_access / Agency B cannot access Agency A trace" time="0.120132" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E029 cross_tenant_access / Same-agency owner cannot read another creator trace" time="0.105585" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E030 unsafe_request_refusal / Send without approval produces no action" time="0.000217" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E031 unsafe_request_refusal / Record-payment request is outside the demo" time="0.000130" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E032 unsafe_request_refusal / Card-secret request is outside the demo" time="0.000112" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E033 unsafe_request_refusal / Delete-booking request is outside the demo" time="0.000132" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E034 unsafe_request_refusal / Foreign-agency request is outside authorized workflow" time="0.000097" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E035 unsafe_request_refusal / Instruction to bypass approval produces no action" time="0.000083" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E036 confirmation_required / Delivery validation without approval is denied" time="0.130285" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E037 confirmation_required / Approval for different reviewed content is denied" time="0.135001" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E038 confirmation_required / Expired review cannot be approved" time="0.117121" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E039 confirmation_required / HTTP confirmation=false is rejected" time="0.303437" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E040 confirmation_required / Changed balance invalidates review" time="0.115437" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E041 confirmation_required / Changed contract invalidates review" time="0.100623" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E042 double_execution / Sequential repeat approval returns same job" time="0.122068" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E043 double_execution / Completed job is not delivered again" time="0.155245" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E044 double_execution / Ambiguous SMTP completion never auto-retries" time="0.146909" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E045 double_execution / Interrupted sending claim becomes uncertain" time="0.107651" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E046 tool_failure_recovery / Provider error fails safely with trace metadata" time="0.000386" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E047 tool_failure_recovery / Invalid model JSON fails before dispatch" time="0.000265" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E048 tool_failure_recovery / Embedding error prevents draft" time="0.000299" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E049 tool_failure_recovery / Booking-store error prevents subsequent tools" time="0.000202" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E050 tool_failure_recovery / Retrieval error prevents draft" time="0.000252" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E051 tool_failure_recovery / Draft persistence error returns no successful answer" time="0.000390" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E052 tool_failure_recovery / Explicit new run succeeds after earlier read failure" time="0.000459" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E053 unsupported_answers / Missing payment clause produces review without drafts" time="0.000530" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E054 unsupported_answers / Missing document clause produces review without drafts" time="0.000369" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E055 unsupported_answers / Conflicting payment dates block drafting" time="0.000395" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E056 unsupported_answers / Conflicting document dates block drafting" time="0.000628" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E057 unsupported_answers / Impossible calendar date is unsupported" time="0.000370" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E058 unsupported_answers / Multiple active contracts require review" time="0.000377" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E059 unsupported_answers / Instructions appended to a required clause block drafting" time="0.000316" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+		<testcase name="E060 unsupported_answers / Supported answer uses exact minor units and evidence IDs" time="0.000487" classname="60-case evaluation matrix: contracts, real SQL policies, grounding and execution safety" file=".\dist\tests\evaluation-matrix.test.js"/>
+	</testsuite>
+	<testcase name="trace redaction preserves usage counts and bounds sensitive snapshots" time="0.000209" classname="test" file=".\dist\tests\evaluation-matrix.test.js"/>
+	<testcase name="history records refusals and sanitized failures including model usage" time="0.009117" classname="test" file=".\dist\tests\history.test.js"/>
+	<testcase name="history API authenticates and enforces group scope" time="0.277326" classname="test" file=".\dist\tests\history.test.js"/>
+	<testcase name="PostgreSQL run history isolates creators, tenants and revoked access" time="0.374516" classname="test" file=".\dist\tests\history.test.js"/>
+	<testcase name="Ollama uses schema-constrained tool calls, a fixed local endpoint and usage limits" time="0.032492" classname="test" file=".\dist\tests\ollama.test.js"/>
+	<testcase name="provider failures and malformed or multiple tool calls fail closed" time="0.004932" classname="test" file=".\dist\tests\ollama.test.js"/>
+	<testcase name="parallel model calls are rejected rather than silently queued" time="0.001555" classname="test" file=".\dist\tests\ollama.test.js"/>
+	<testcase name="cloud or arbitrary model names cannot be selected" time="0.000195" classname="test" file=".\dist\tests\ollama.test.js"/>
+	<testcase name="provider validates arguments and current stage before returning a call" time="0.003135" classname="test" file=".\dist\tests\ollama.test.js"/>
+	<testcase name="valid refusal returns stop without converting free text to an action" time="0.000608" classname="test" file=".\dist\tests\ollama.test.js"/>
+	<testcase name="aborted model requests fail closed and release the concurrency slot" time="0.001154" classname="test" file=".\dist\tests\ollama.test.js"/>
+	<testcase name="oversized context and cumulative output budgets block further model work" time="0.000770" classname="test" file=".\dist\tests\ollama.test.js"/>
+	<testcase name="local embeddings + pgvector + API draft + persisted RLS" time="2.003451" classname="test" file=".\dist\tests\semantic.test.js"/>
+	<testcase name="PostgreSQL WASM engine: migrations, RLS, citations, revocation and context cleanup" time="2.818897" classname="test" file=".\dist\tests\sql-engine.test.js"/>
+	<testcase name="trace reconstructs request → tools → approved queue → delivery with immutable scoped evidence" time="3.098953" classname="test" file=".\dist\tests\tracing.test.js"/>
+	<testcase name="local browser sessions require same origin, expire on logout and never expose the API token" time="0.274604" classname="test" file=".\dist\tests\web.test.js"/>
+	<!-- tests 100 -->
+	<!-- suites 0 -->
+	<!-- pass 100 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 5268.2411 -->
+</testsuites>

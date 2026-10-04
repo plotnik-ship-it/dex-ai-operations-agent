@@ -1,0 +1,14 @@
+{
+  "tokens": 1580,
+  "checkedAt": "2026-10-04T13:15:06.0421336-05:00",
+  "recipient": "demo@example.test",
+  "afterTotal": 8,
+  "newMessageCount": 1,
+  "messageId": "a2477d9c-3088-42e8-9bbf-d8b507a758f8-booking-a1@dex.example.test",
+  "subject": "Action needed for your booking booking-a1",
+  "beforeTotal": 7,
+  "model": "qwen3:4b",
+  "modelDurationSeconds": 33.7,
+  "status": "sent",
+  "modelCalls": 3
+}

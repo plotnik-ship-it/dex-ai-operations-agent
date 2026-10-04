@@ -1,0 +1,334 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Dex — Trace inspection</title><style>body{margin:0;background:#f6f7f2;color:#193d32;font:18px Arial}header{padding:18px 42px;background:#193d32;color:white;display:flex;justify-content:space-between}main{max-width:1160px;margin:auto;padding:25px}h1{font-size:36px;margin:8px 0}h2{font-size:23px}p{line-height:1.5}small{font-size:13px;color:#65776f}code{font-size:14px}table{width:100%;border-collapse:collapse;background:white}td,th{padding:15px;border-bottom:1px solid #dae1d9;text-align:left}pre{font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#eef2e9;padding:16px}.metrics{display:flex;gap:14px;margin:20px 0}.metrics span,.tag{background:#e4ecd9;border-radius:8px;padding:12px}.panel{padding:18px;background:white;border:1px solid #dae1d9;border-radius:12px;margin:14px 0}.checks{display:flex;gap:8px;flex-wrap:wrap;font-size:14px}.checks span{background:#edf3e6;padding:9px;border-radius:8px}details{margin:7px 0;padding:12px;border:1px solid #d6ddd3;border-radius:8px}summary{cursor:pointer}.event-meta{font-size:12px;color:#65776f}</style><header><strong>dex. / TRACE INSPECTION</strong><span>Recording companion · Actual API snapshot</span></header><main><small>ONE REQUEST. ONE TRACE.</small><h1>From model proposal to approved delivery.</h1><p><code>0ab39b0a-4b3f-444f-bacf-80db043a55da</code><br>Northstar Demo Travel · Synthetic data · Local Mailpit</p><div class="metrics"><span>qwen3:4b</span><span>3 model calls</span><span>1580 tokens</span><span>Provider cost USD 0</span><span>26 events</span></div><h2>Validated tool selection</h2><table><tr><th>Tool</th><th>Validated arguments</th></tr><tr><td><code>list_bookings_requiring_attention</code></td><td><code>{&quot;filter&quot;:&quot;unpaid_balances_and_missing_documents&quot;}</code></td></tr><tr><td><code>search_contract_sources</code></td><td><code>{&quot;query&quot;:&quot;unpaid bookings with missing passport documents&quot;}</code></td></tr><tr><td><code>prepare_reminder_draft</code></td><td><code>{&quot;delivery&quot;:&quot;draft_only&quot;}</code></td></tr></table><section id="permissions" class="panel"><h2>Permission boundaries</h2><div class="checks"><span>run_creation · ALLOWED</span><span>booking_read · ALLOWED</span><span>source_search · ALLOWED</span><span>source_expansion · ALLOWED</span><span>draft_persistence · ALLOWED</span><span>approval · ALLOWED</span><span>delivery · ALLOWED</span></div></section><section id="delivery" class="panel"><h2>Human approval → durable job → test delivery</h2><p>Status: <strong>sent</strong> · Automatic retries: 0<br>Draft <code>cc6148c7-3c2b-4cef-b6c0-c3a1ae203129</code><br>Job <code>99ca859a-d1ca-4b54-9c06-362a075a6a64</code></p><small>Approval is bound to the reviewed payload. The worker rechecks authority and current data.</small></section><section id="events"><h2>Complete event stream · 26 events</h2><p>Ordered by database sequence. Open any event for its captured data.</p><details><summary><strong>174 · user_request</strong> </summary><p class="event-meta">2026-10-04T20:43:54.737Z<br>Span 0ab39b0a-4b3f-444f-bacf-80db043a55da<br>Parent root</p><pre>{
+  &quot;groupId&quot;: &quot;group-a&quot;,
+  &quot;request&quot;: &quot;Find unpaid bookings with missing documents, check the contract deadlines, and prepare reminders for human review.&quot;,
+  &quot;plannerMode&quot;: &quot;ollama-local&quot;
+}</pre></details><details><summary><strong>175 · permission_check</strong> </summary><p class="event-meta">2026-10-04T20:43:54.743Z<br>Span 0ab39b0a-4b3f-444f-bacf-80db043a55da<br>Parent root</p><pre>{
+  &quot;source&quot;: &quot;database_rls&quot;,
+  &quot;allowed&quot;: true,
+  &quot;boundary&quot;: &quot;run_creation&quot;
+}</pre></details><details><summary><strong>176 · model_started</strong> </summary><p class="event-meta">2026-10-04T20:43:54.749Z<br>Span a0cebdbf-77f0-4fe4-9743-506ecaebcd52<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;step&quot;: 0,
+  &quot;attempt&quot;: 1
+}</pre></details><details><summary><strong>177 · model_decision</strong> 13502 ms</summary><p class="event-meta">2026-10-04T20:44:08.251Z<br>Span a0cebdbf-77f0-4fe4-9743-506ecaebcd52<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;step&quot;: 0,
+  &quot;decision&quot;: {
+    &quot;name&quot;: &quot;list_bookings_requiring_attention&quot;,
+    &quot;arguments&quot;: {
+      &quot;filter&quot;: &quot;unpaid_balances_and_missing_documents&quot;
+    }
+  },
+  &quot;modelUsage&quot;: {
+    &quot;calls&quot;: 1,
+    &quot;model&quot;: &quot;qwen3:4b&quot;,
+    &quot;protocol&quot;: &quot;schema-constrained-tools&quot;,
+    &quot;provider&quot;: &quot;ollama&quot;,
+    &quot;durationMs&quot;: 13495,
+    &quot;inputTokens&quot;: 426,
+    &quot;outputTokens&quot;: 35,
+    &quot;estimatedProviderCostUsd&quot;: 0
+  }
+}</pre></details><details><summary><strong>178 · tool_selected</strong> </summary><p class="event-meta">2026-10-04T20:44:08.261Z<br>Span 47508f6b-92c6-46f8-97a1-c46e72feb948<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;tool&quot;: &quot;list_bookings_requiring_attention&quot;,
+  &quot;attempt&quot;: 1,
+  &quot;arguments&quot;: {
+    &quot;filter&quot;: &quot;unpaid_balances_and_missing_documents&quot;
+  }
+}</pre></details><details><summary><strong>179 · permission_check</strong> </summary><p class="event-meta">2026-10-04T20:44:08.276Z<br>Span 47508f6b-92c6-46f8-97a1-c46e72feb948<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;allowed&quot;: true,
+  &quot;boundary&quot;: &quot;booking_read&quot;
+}</pre></details><details><summary><strong>180 · tool_result</strong> 28 ms</summary><p class="event-meta">2026-10-04T20:44:08.289Z<br>Span 47508f6b-92c6-46f8-97a1-c46e72feb948<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;tool&quot;: &quot;list_bookings_requiring_attention&quot;,
+  &quot;output&quot;: [
+    {
+      &quot;id&quot;: &quot;booking-a1&quot;,
+      &quot;groupId&quot;: &quot;group-a&quot;,
+      &quot;currency&quot;: &quot;USD&quot;,
+      &quot;balanceMinor&quot;: &quot;150000&quot;,
+      &quot;missingDocuments&quot;: [
+        &quot;passport_copy&quot;
+      ]
+    }
+  ]
+}</pre></details><details><summary><strong>181 · model_started</strong> </summary><p class="event-meta">2026-10-04T20:44:08.300Z<br>Span c5e37d04-9325-4d43-b6e9-0fc248b19abf<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;step&quot;: 1,
+  &quot;attempt&quot;: 1
+}</pre></details><details><summary><strong>182 · model_decision</strong> 7994 ms</summary><p class="event-meta">2026-10-04T20:44:16.294Z<br>Span c5e37d04-9325-4d43-b6e9-0fc248b19abf<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;step&quot;: 1,
+  &quot;decision&quot;: {
+    &quot;name&quot;: &quot;search_contract_sources&quot;,
+    &quot;arguments&quot;: {
+      &quot;query&quot;: &quot;unpaid bookings with missing passport documents&quot;
+    }
+  },
+  &quot;modelUsage&quot;: {
+    &quot;calls&quot;: 2,
+    &quot;model&quot;: &quot;qwen3:4b&quot;,
+    &quot;protocol&quot;: &quot;schema-constrained-tools&quot;,
+    &quot;provider&quot;: &quot;ollama&quot;,
+    &quot;durationMs&quot;: 21480,
+    &quot;inputTokens&quot;: 913,
+    &quot;outputTokens&quot;: 68,
+    &quot;estimatedProviderCostUsd&quot;: 0
+  }
+}</pre></details><details><summary><strong>183 · tool_selected</strong> </summary><p class="event-meta">2026-10-04T20:44:16.307Z<br>Span a2ebc374-f6e2-4c58-830d-2c53be1ec9be<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;tool&quot;: &quot;search_contract_sources&quot;,
+  &quot;attempt&quot;: 1,
+  &quot;arguments&quot;: {
+    &quot;query&quot;: &quot;unpaid bookings with missing passport documents&quot;
+  }
+}</pre></details><details><summary><strong>184 · permission_check</strong> </summary><p class="event-meta">2026-10-04T20:44:16.350Z<br>Span a2ebc374-f6e2-4c58-830d-2c53be1ec9be<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;allowed&quot;: true,
+  &quot;boundary&quot;: &quot;source_search&quot;
+}</pre></details><details><summary><strong>185 · permission_check</strong> </summary><p class="event-meta">2026-10-04T20:44:16.376Z<br>Span a2ebc374-f6e2-4c58-830d-2c53be1ec9be<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;allowed&quot;: true,
+  &quot;boundary&quot;: &quot;source_expansion&quot;
+}</pre></details><details><summary><strong>186 · tool_result</strong> 77 ms</summary><p class="event-meta">2026-10-04T20:44:16.384Z<br>Span a2ebc374-f6e2-4c58-830d-2c53be1ec9be<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;tool&quot;: &quot;search_contract_sources&quot;,
+  &quot;output&quot;: [
+    {
+      &quot;id&quot;: &quot;documents-a&quot;,
+      &quot;excerpt&quot;: &quot;Passport copies must be submitted by November 10, 2026.&quot;,
+      &quot;section&quot;: &quot;Section 5 — Required documents&quot;
+    },
+    {
+      &quot;id&quot;: &quot;payment-a&quot;,
+      &quot;excerpt&quot;: &quot;The remaining booking balance must be paid by November 15, 2026.&quot;,
+      &quot;section&quot;: &quot;Section 4 — Final payment&quot;
+    }
+  ]
+}</pre></details><details><summary><strong>187 · model_started</strong> </summary><p class="event-meta">2026-10-04T20:44:16.402Z<br>Span d1ad1ea3-4e49-41ac-8d01-94f254c10e38<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;step&quot;: 2,
+  &quot;attempt&quot;: 1
+}</pre></details><details><summary><strong>188 · model_decision</strong> 9490 ms</summary><p class="event-meta">2026-10-04T20:44:25.892Z<br>Span d1ad1ea3-4e49-41ac-8d01-94f254c10e38<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;step&quot;: 2,
+  &quot;decision&quot;: {
+    &quot;name&quot;: &quot;prepare_reminder_draft&quot;,
+    &quot;arguments&quot;: {
+      &quot;delivery&quot;: &quot;draft_only&quot;
+    }
+  },
+  &quot;modelUsage&quot;: {
+    &quot;calls&quot;: 3,
+    &quot;model&quot;: &quot;qwen3:4b&quot;,
+    &quot;protocol&quot;: &quot;schema-constrained-tools&quot;,
+    &quot;provider&quot;: &quot;ollama&quot;,
+    &quot;durationMs&quot;: 30963,
+    &quot;inputTokens&quot;: 1484,
+    &quot;outputTokens&quot;: 96,
+    &quot;estimatedProviderCostUsd&quot;: 0
+  }
+}</pre></details><details><summary><strong>189 · tool_selected</strong> </summary><p class="event-meta">2026-10-04T20:44:25.900Z<br>Span 7c51df6d-4a3f-45a6-aa98-1b1ad5dd2c68<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;tool&quot;: &quot;prepare_reminder_draft&quot;,
+  &quot;attempt&quot;: 1,
+  &quot;arguments&quot;: {
+    &quot;delivery&quot;: &quot;draft_only&quot;
+  }
+}</pre></details><details><summary><strong>190 · permission_check</strong> </summary><p class="event-meta">2026-10-04T20:44:25.912Z<br>Span 7c51df6d-4a3f-45a6-aa98-1b1ad5dd2c68<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;allowed&quot;: true,
+  &quot;boundary&quot;: &quot;draft_persistence&quot;
+}</pre></details><details><summary><strong>191 · tool_result</strong> 19 ms</summary><p class="event-meta">2026-10-04T20:44:25.919Z<br>Span 7c51df6d-4a3f-45a6-aa98-1b1ad5dd2c68<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;tool&quot;: &quot;prepare_reminder_draft&quot;,
+  &quot;drafts&quot;: [
+    {
+      &quot;body&quot;: &quot;Hello,\n\nYour booking booking-a1 has an outstanding balance of USD 1500.00. Please complete payment by 2026-11-15.\nMissing documents: passport_copy. Please submit them by 2026-11-10.\n\nIf you have already completed these steps, please contact your travel agency.&quot;,
+      &quot;subject&quot;: &quot;Action needed for your booking booking-a1&quot;,
+      &quot;currency&quot;: &quot;USD&quot;,
+      &quot;bookingId&quot;: &quot;booking-a1&quot;,
+      &quot;balanceMinor&quot;: &quot;150000&quot;,
+      &quot;missingDocuments&quot;: [
+        &quot;passport_copy&quot;
+      ],
+      &quot;deliveryDestination&quot;: &quot;[email]&quot;
+    }
+  ],
+  &quot;status&quot;: &quot;pending_review&quot;,
+  &quot;draftId&quot;: &quot;cc6148c7-3c2b-4cef-b6c0-c3a1ae203129&quot;,
+  &quot;deadlines&quot;: [
+    {
+      &quot;date&quot;: &quot;2026-11-15&quot;,
+      &quot;status&quot;: &quot;supported&quot;,
+      &quot;sources&quot;: [
+        {
+          &quot;id&quot;: &quot;payment-a&quot;,
+          &quot;page&quot;: 1,
+          &quot;title&quot;: &quot;Caribbean Discovery — Synthetic Contract&quot;,
+          &quot;excerpt&quot;: &quot;The remaining booking balance must be paid by November 15, 2026.&quot;,
+          &quot;section&quot;: &quot;Section 4 — Final payment&quot;,
+          &quot;version&quot;: &quot;1.0&quot;,
+          &quot;contractId&quot;: &quot;contract-a&quot;
+        }
+      ],
+      &quot;obligation&quot;: &quot;payment&quot;
+    },
+    {
+      &quot;date&quot;: &quot;2026-11-10&quot;,
+      &quot;status&quot;: &quot;supported&quot;,
+      &quot;sources&quot;: [
+        {
+          &quot;id&quot;: &quot;documents-a&quot;,
+          &quot;page&quot;: 1,
+          &quot;title&quot;: &quot;Caribbean Discovery — Synthetic Contract&quot;,
+          &quot;excerpt&quot;: &quot;Passport copies must be submitted by November 10, 2026.&quot;,
+          &quot;section&quot;: &quot;Section 5 — Required documents&quot;,
+          &quot;version&quot;: &quot;1.0&quot;,
+          &quot;contractId&quot;: &quot;contract-a&quot;
+        }
+      ],
+      &quot;obligation&quot;: &quot;documents&quot;
+    }
+  ]
+}</pre></details><details><summary><strong>192 · final_answer</strong> 31198 ms</summary><p class="event-meta">2026-10-04T20:44:25.927Z<br>Span 0ab39b0a-4b3f-444f-bacf-80db043a55da<br>Parent root</p><pre>{
+  &quot;result&quot;: {
+    &quot;runId&quot;: &quot;0ab39b0a-4b3f-444f-bacf-80db043a55da&quot;,
+    &quot;drafts&quot;: [
+      {
+        &quot;body&quot;: &quot;Hello,\n\nYour booking booking-a1 has an outstanding balance of USD 1500.00. Please complete payment by 2026-11-15.\nMissing documents: passport_copy. Please submit them by 2026-11-10.\n\nIf you have already completed these steps, please contact your travel agency.&quot;,
+        &quot;subject&quot;: &quot;Action needed for your booking booking-a1&quot;,
+        &quot;currency&quot;: &quot;USD&quot;,
+        &quot;bookingId&quot;: &quot;booking-a1&quot;,
+        &quot;balanceMinor&quot;: &quot;150000&quot;,
+        &quot;missingDocuments&quot;: [
+          &quot;passport_copy&quot;
+        ],
+        &quot;deliveryDestination&quot;: &quot;[email]&quot;
+      }
+    ],
+    &quot;events&quot;: [
+      {
+        &quot;name&quot;: &quot;list_bookings_requiring_attention&quot;,
+        &quot;status&quot;: &quot;ok&quot;,
+        &quot;durationMs&quot;: 28
+      },
+      {
+        &quot;name&quot;: &quot;search_contract_sources&quot;,
+        &quot;status&quot;: &quot;ok&quot;,
+        &quot;durationMs&quot;: 77
+      },
+      {
+        &quot;name&quot;: &quot;prepare_reminder_draft&quot;,
+        &quot;status&quot;: &quot;ok&quot;,
+        &quot;durationMs&quot;: 6
+      }
+    ],
+    &quot;status&quot;: &quot;pending_review&quot;,
+    &quot;draftId&quot;: &quot;cc6148c7-3c2b-4cef-b6c0-c3a1ae203129&quot;,
+    &quot;deadlines&quot;: [
+      {
+        &quot;date&quot;: &quot;2026-11-15&quot;,
+        &quot;status&quot;: &quot;supported&quot;,
+        &quot;sources&quot;: [
+          {
+            &quot;id&quot;: &quot;payment-a&quot;,
+            &quot;page&quot;: 1,
+            &quot;title&quot;: &quot;Caribbean Discovery — Synthetic Contract&quot;,
+            &quot;excerpt&quot;: &quot;The remaining booking balance must be paid by November 15, 2026.&quot;,
+            &quot;section&quot;: &quot;Section 4 — Final payment&quot;,
+            &quot;version&quot;: &quot;1.0&quot;,
+            &quot;contractId&quot;: &quot;contract-a&quot;
+          }
+        ],
+        &quot;obligation&quot;: &quot;payment&quot;
+      },
+      {
+        &quot;date&quot;: &quot;2026-11-10&quot;,
+        &quot;status&quot;: &quot;supported&quot;,
+        &quot;sources&quot;: [
+          {
+            &quot;id&quot;: &quot;documents-a&quot;,
+            &quot;page&quot;: 1,
+            &quot;title&quot;: &quot;Caribbean Discovery — Synthetic Contract&quot;,
+            &quot;excerpt&quot;: &quot;Passport copies must be submitted by November 10, 2026.&quot;,
+            &quot;section&quot;: &quot;Section 5 — Required documents&quot;,
+            &quot;version&quot;: &quot;1.0&quot;,
+            &quot;contractId&quot;: &quot;contract-a&quot;
+          }
+        ],
+        &quot;obligation&quot;: &quot;documents&quot;
+      }
+    ],
+    &quot;expiresAt&quot;: {},
+    &quot;modelUsage&quot;: {
+      &quot;calls&quot;: 3,
+      &quot;model&quot;: &quot;qwen3:4b&quot;,
+      &quot;protocol&quot;: &quot;schema-constrained-tools&quot;,
+      &quot;provider&quot;: &quot;ollama&quot;,
+      &quot;durationMs&quot;: 30963,
+      &quot;inputTokens&quot;: 1484,
+      &quot;outputTokens&quot;: 96,
+      &quot;estimatedProviderCostUsd&quot;: 0
+    },
+    &quot;plannerMode&quot;: &quot;ollama-local&quot;,
+    &quot;deliveryEnabled&quot;: false,
+    &quot;estimatedProviderCostUsd&quot;: 0
+  },
+  &quot;retries&quot;: 0,
+  &quot;modelUsage&quot;: {
+    &quot;calls&quot;: 3,
+    &quot;model&quot;: &quot;qwen3:4b&quot;,
+    &quot;protocol&quot;: &quot;schema-constrained-tools&quot;,
+    &quot;provider&quot;: &quot;ollama&quot;,
+    &quot;durationMs&quot;: 30963,
+    &quot;inputTokens&quot;: 1484,
+    &quot;outputTokens&quot;: 96,
+    &quot;estimatedProviderCostUsd&quot;: 0
+  }
+}</pre></details><details><summary><strong>193 · permission_check</strong> </summary><p class="event-meta">2026-10-04T20:44:56.162Z<br>Span a857185b-a21b-4b98-b690-eb3dd80c82e0<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;checks&quot;: [
+    &quot;creator&quot;,
+    &quot;current_membership&quot;,
+    &quot;group_access&quot;,
+    &quot;expiry&quot;,
+    &quot;content_hash&quot;,
+    &quot;current_booking&quot;,
+    &quot;current_contract&quot;
+  ],
+  &quot;allowed&quot;: true,
+  &quot;draftId&quot;: &quot;cc6148c7-3c2b-4cef-b6c0-c3a1ae203129&quot;,
+  &quot;boundary&quot;: &quot;approval&quot;
+}</pre></details><details><summary><strong>194 · approval_confirmed</strong> 15 ms</summary><p class="event-meta">2026-10-04T20:44:56.168Z<br>Span a857185b-a21b-4b98-b690-eb3dd80c82e0<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;jobId&quot;: &quot;99ca859a-d1ca-4b54-9c06-362a075a6a64&quot;,
+  &quot;status&quot;: &quot;queued&quot;,
+  &quot;draftId&quot;: &quot;cc6148c7-3c2b-4cef-b6c0-c3a1ae203129&quot;,
+  &quot;reviewHash&quot;: &quot;8897c97c8c7cb804657e032d11a49b2b770945eda436f2397b4db48b6f2a3cd3&quot;
+}</pre></details><details><summary><strong>195 · delivery_claimed</strong> 0 ms</summary><p class="event-meta">2026-10-04T20:44:56.558Z<br>Span 99ca859a-d1ca-4b54-9c06-362a075a6a64<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;jobId&quot;: &quot;99ca859a-d1ca-4b54-9c06-362a075a6a64&quot;,
+  &quot;attempt&quot;: 1,
+  &quot;draftId&quot;: &quot;cc6148c7-3c2b-4cef-b6c0-c3a1ae203129&quot;,
+  &quot;retries&quot;: 0
+}</pre></details><details><summary><strong>196 · permission_check</strong> 30 ms</summary><p class="event-meta">2026-10-04T20:44:56.574Z<br>Span 99ca859a-d1ca-4b54-9c06-362a075a6a64<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;jobId&quot;: &quot;99ca859a-d1ca-4b54-9c06-362a075a6a64&quot;,
+  &quot;checks&quot;: [
+    &quot;approval&quot;,
+    &quot;current_membership&quot;,
+    &quot;group_access&quot;,
+    &quot;expiry&quot;,
+    &quot;content_hash&quot;,
+    &quot;current_booking&quot;,
+    &quot;current_contract&quot;
+  ],
+  &quot;allowed&quot;: true,
+  &quot;draftId&quot;: &quot;cc6148c7-3c2b-4cef-b6c0-c3a1ae203129&quot;,
+  &quot;boundary&quot;: &quot;delivery&quot;
+}</pre></details><details><summary><strong>197 · delivery_attempt</strong> 42 ms</summary><p class="event-meta">2026-10-04T20:44:56.587Z<br>Span 99ca859a-d1ca-4b54-9c06-362a075a6a64<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;jobId&quot;: &quot;99ca859a-d1ca-4b54-9c06-362a075a6a64&quot;,
+  &quot;attempt&quot;: 1,
+  &quot;draftId&quot;: &quot;cc6148c7-3c2b-4cef-b6c0-c3a1ae203129&quot;,
+  &quot;bookingId&quot;: &quot;booking-a1&quot;,
+  &quot;idempotencyKey&quot;: &quot;99ca859a-d1ca-4b54-9c06-362a075a6a64-booking-a1&quot;
+}</pre></details><details><summary><strong>198 · delivery_result</strong> 98 ms</summary><p class="event-meta">2026-10-04T20:44:56.642Z<br>Span 99ca859a-d1ca-4b54-9c06-362a075a6a64<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;jobId&quot;: &quot;99ca859a-d1ca-4b54-9c06-362a075a6a64&quot;,
+  &quot;status&quot;: &quot;sent&quot;,
+  &quot;draftId&quot;: &quot;cc6148c7-3c2b-4cef-b6c0-c3a1ae203129&quot;,
+  &quot;bookingId&quot;: &quot;booking-a1&quot;
+}</pre></details><details><summary><strong>199 · delivery_finished</strong> 106 ms</summary><p class="event-meta">2026-10-04T20:44:56.651Z<br>Span 99ca859a-d1ca-4b54-9c06-362a075a6a64<br>Parent 0ab39b0a-4b3f-444f-bacf-80db043a55da</p><pre>{
+  &quot;jobId&quot;: &quot;99ca859a-d1ca-4b54-9c06-362a075a6a64&quot;,
+  &quot;status&quot;: &quot;sent&quot;,
+  &quot;draftId&quot;: &quot;cc6148c7-3c2b-4cef-b6c0-c3a1ae203129&quot;,
+  &quot;retries&quot;: 0,
+  &quot;outcomes&quot;: [
+    {
+      &quot;status&quot;: &quot;sent&quot;,
+      &quot;bookingId&quot;: &quot;booking-a1&quot;
+    }
+  ]
+}</pre></details></section><section id="evidence" class="panel"><h2>Reliability evidence, reported separately</h2><p>98 passing test cases · 60 system scenarios included<br>8/8 selected Qwen cases · 4/4 adversarial cases</p><small>These are synthetic regression suites, not a claim of universal model accuracy.<br>No paid inference, GroupDeck connection or AWS deployment.</small></section></main></html>

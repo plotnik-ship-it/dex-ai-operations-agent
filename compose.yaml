@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_DB: dex
+      POSTGRES_USER: dex_migration
+      POSTGRES_PASSWORD: local_migration_password
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - dex_data:/var/lib/postgresql/data
+      - ./database/001-foundation.sql:/docker-entrypoint-initdb.d/001-foundation.sql:ro
+      - ./database/002-authorization.sql:/docker-entrypoint-initdb.d/002-authorization.sql:ro
+      - ./database/003-contract-evidence.sql:/docker-entrypoint-initdb.d/003-contract-evidence.sql:ro
+      - ./database/004-drafts.sql:/docker-entrypoint-initdb.d/004-drafts.sql:ro
+      - ./database/005-approved-delivery.sql:/docker-entrypoint-initdb.d/005-approved-delivery.sql:ro
+      - ./database/006-run-history.sql:/docker-entrypoint-initdb.d/006-run-history.sql:ro
+      - ./database/007-tracing.sql:/docker-entrypoint-initdb.d/007-tracing.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dex_migration -d dex"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  mailpit:
+    image: axllent/mailpit:v1.27
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:8025:8025"
+  ollama:
+    image: ollama/ollama@sha256:292ee7945dfc3d5840a181f3ab86fedb1e66703e02c8af98b50f4da56b7e278c
+    profiles: [llm]
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    environment:
+      OLLAMA_NUM_PARALLEL: 1
+      OLLAMA_MAX_LOADED_MODELS: 1
+      OLLAMA_CONTEXT_LENGTH: 4096
+    mem_limit: 4g
+
+volumes:
+  dex_data:
+  ollama_models:

@@ -1,0 +1,21 @@
+{
+  "verifiedAt": "2026-10-04T20:05:30.696Z",
+  "passed": true,
+  "traceId": "66db9354-c592-40fc-90a0-d6ae169c92fa",
+  "plannerMode": "ollama-local",
+  "eventCount": 19,
+  "durationMs": 12897,
+  "deliveryEnabled": false,
+  "approved": false,
+  "modelUsage": {
+    "calls": 3,
+    "model": "qwen3:4b",
+    "protocol": "schema-constrained-tools",
+    "provider": "ollama",
+    "durationMs": 12358,
+    "inputTokens": 1487,
+    "outputTokens": 96,
+    "estimatedProviderCostUsd": 0
+  },
+  "evidence": "api-trace-example.json"
+}
