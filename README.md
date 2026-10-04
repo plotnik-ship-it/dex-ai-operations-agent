@@ -1,5 +1,7 @@
 # Dex AI Operations Agent
 
+[![Dex reliability](https://github.com/plotnik-ship-it/dex-ai-operations-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/plotnik-ship-it/dex-ai-operations-agent/actions/workflows/ci.yml)
+
 A local portfolio demo of an approval-gated AI workflow for travel operations. Dex finds bookings with both an unpaid balance and missing documents, retrieves contract evidence, and prepares reminders for a human to review. Approved messages go only to a local Mailpit inbox. All data is fictional.
 
 ## The project in 30 seconds
@@ -94,7 +96,9 @@ Recorded results on October 4, 2026: **60/60 matrix scenarios**, **8/8 selected 
 
 ## Continuous verification
 
-The Actions workflow runs the 98-case local integration/security suite and 60-case matrix on every push/PR, with JSON/JUnit artifacts and a readable job summary. Live Qwen and adversarial evals run weekly or on manual dispatch. Old results are discarded before each job so a failed run cannot present stale evidence as a fresh pass. The workflow is configured locally; a hosted run requires pushing this independent repository to GitHub. It does not deploy infrastructure.
+The Actions workflow runs the 98-case local integration/security suite and 60-case matrix on every push/PR, with JSON/JUnit artifacts and a readable job summary. Live Qwen and adversarial evals run weekly or on manual dispatch. Old results are discarded before each job so a failed run cannot present stale evidence as a fresh pass. The [first hosted run](https://github.com/plotnik-ship-it/dex-ai-operations-agent/actions/runs/37234584545) passed all 98 tests with zero skips and the complete 60-case matrix on a fresh Ubuntu runner. It does not deploy infrastructure.
+
+The [manual hosted model run](https://github.com/plotnik-ship-it/dex-ai-operations-agent/actions/runs/37234676710) also passed: **8/8 Qwen3 4B cases, 4/4 adversarial safety and quality cases**, and all deterministic/integration checks. [Hosted provenance](docs/hosted-verification.md) links the evaluated commit, artifacts and versioned report. [Resume and interview copy](docs/portfolio-copy.md).
 
 npm run report:evals generates docs/eval-results/latest.md and preserves a dated snapshot keyed by evidence hashes. Each layer retains its actual evaluation date and model identity.
 

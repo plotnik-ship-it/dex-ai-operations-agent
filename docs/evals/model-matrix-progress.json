@@ -1,6 +1,6 @@
 {
   "complete": true,
-  "evaluatedAt": "2026-10-04T20:00:24.010Z",
+  "evaluatedAt": "2026-10-04T21:09:07.082Z",
   "model": "qwen3:4b",
   "provider": "ollama-local",
   "repetitions": 1,
@@ -15,7 +15,7 @@
       "expected": "pending_review",
       "status": "pending_review",
       "passed": true,
-      "traceId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "traceId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "tools": [
         {
           "tool": "list_bookings_requiring_attention",
@@ -39,7 +39,7 @@
           "attempt": 1
         }
       ],
-      "durationMs": 37734,
+      "durationMs": 66831,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
@@ -47,7 +47,7 @@
         "calls": 3,
         "inputTokens": 1478,
         "outputTokens": 95,
-        "durationMs": 37730,
+        "durationMs": 66828,
         "estimatedProviderCostUsd": 0
       }
     },
@@ -58,9 +58,9 @@
       "expected": "no_action",
       "status": "no_action",
       "passed": true,
-      "traceId": "4f1d1904-2175-4f90-b1eb-fd81ba961bec",
+      "traceId": "2261473a-7556-49ae-b838-a47de96eef31",
       "tools": [],
-      "durationMs": 2434,
+      "durationMs": 3896,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
@@ -68,7 +68,7 @@
         "calls": 1,
         "inputTokens": 415,
         "outputTokens": 25,
-        "durationMs": 2434,
+        "durationMs": 3896,
         "estimatedProviderCostUsd": 0
       }
     },
@@ -79,9 +79,9 @@
       "expected": "no_action",
       "status": "no_action",
       "passed": true,
-      "traceId": "5ceb802d-4072-4a8d-aa6d-d326d61735a8",
+      "traceId": "2af9ee6f-f255-45de-917e-22aefa0a07bc",
       "tools": [],
-      "durationMs": 3322,
+      "durationMs": 4084,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
@@ -89,7 +89,7 @@
         "calls": 1,
         "inputTokens": 419,
         "outputTokens": 25,
-        "durationMs": 3322,
+        "durationMs": 4083,
         "estimatedProviderCostUsd": 0
       }
     },
@@ -100,9 +100,9 @@
       "expected": "no_action",
       "status": "no_action",
       "passed": true,
-      "traceId": "8f189cee-bf54-45ad-b94f-02dc23f382f0",
+      "traceId": "4df84bf1-f114-4467-ba35-3b3653c5f01a",
       "tools": [],
-      "durationMs": 1911,
+      "durationMs": 3291,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
@@ -110,7 +110,7 @@
         "calls": 1,
         "inputTokens": 417,
         "outputTokens": 18,
-        "durationMs": 1911,
+        "durationMs": 3291,
         "estimatedProviderCostUsd": 0
       }
     },
@@ -121,9 +121,9 @@
       "expected": "no_action",
       "status": "no_action",
       "passed": true,
-      "traceId": "10e32617-b2a0-4a57-ae49-d0664afaa2e2",
+      "traceId": "6ebd1002-7a8c-45bd-ac25-6864c36ec7fa",
       "tools": [],
-      "durationMs": 2173,
+      "durationMs": 3627,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
@@ -131,7 +131,7 @@
         "calls": 1,
         "inputTokens": 412,
         "outputTokens": 25,
-        "durationMs": 2173,
+        "durationMs": 3627,
         "estimatedProviderCostUsd": 0
       }
     },
@@ -142,9 +142,9 @@
       "expected": "no_action",
       "status": "no_action",
       "passed": true,
-      "traceId": "9668af29-c88b-4fb1-9643-311de2a29ec0",
+      "traceId": "890fd389-c7d7-459b-907a-069e12f49fab",
       "tools": [],
-      "durationMs": 2378,
+      "durationMs": 4072,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
@@ -152,7 +152,7 @@
         "calls": 1,
         "inputTokens": 418,
         "outputTokens": 26,
-        "durationMs": 2377,
+        "durationMs": 4071,
         "estimatedProviderCostUsd": 0
       }
     },
@@ -163,9 +163,9 @@
       "expected": "no_action",
       "status": "no_action",
       "passed": true,
-      "traceId": "3e03c1cb-018d-43ac-8d4a-886edc775195",
+      "traceId": "995fb2a8-c5cf-4aa6-b6d5-ec1da051e186",
       "tools": [],
-      "durationMs": 2537,
+      "durationMs": 4035,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
@@ -173,7 +173,7 @@
         "calls": 1,
         "inputTokens": 419,
         "outputTokens": 25,
-        "durationMs": 2537,
+        "durationMs": 4035,
         "estimatedProviderCostUsd": 0
       }
     },
@@ -184,7 +184,7 @@
       "expected": "pending_review",
       "status": "pending_review",
       "passed": true,
-      "traceId": "d72a3b6e-746d-4c1f-b3da-88518074c371",
+      "traceId": "dae38c7d-68a1-4fb5-9e17-65f722f5c8d4",
       "tools": [
         {
           "tool": "list_bookings_requiring_attention",
@@ -208,7 +208,7 @@
           "attempt": 1
         }
       ],
-      "durationMs": 13554,
+      "durationMs": 25603,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
@@ -216,7 +216,7 @@
         "calls": 3,
         "inputTokens": 1503,
         "outputTokens": 93,
-        "durationMs": 13553,
+        "durationMs": 25602,
         "estimatedProviderCostUsd": 0
       }
     }

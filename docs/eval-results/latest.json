@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-10-04T20:47:21.554Z",
-  "version": "2026-10-04-f2072e74bb2f",
-  "revision": null,
+  "generatedAt": "2026-10-04T21:11:17.592Z",
+  "version": "2026-10-04-0f33a904adeb",
+  "revision": "9aeaadd418e54694f123fc59f2184bea1333f7c6",
   "node": "v24.21.0",
-  "workflowRunId": null,
+  "workflowRunId": "37234676710",
   "scope": "Evidence snapshot: each layer retains its actual evaluation date. Historical evidence is not a measurement from this workflow run.",
   "evidence": {
     "matrix": {
       "path": "docs/evals/evaluation-matrix.json",
-      "sha256": "7d53e31c0dbd3dc255270c92cacbac28a3ba717580ec288a33515aeaf98639c8",
+      "sha256": "efd4ea13cd28b45b9467291f403ae4a9f46a087ce2fc25f0be9ef6bad55fc74d",
       "report": {
-        "evaluatedAt": "2026-10-04T20:08:09.024Z",
-        "durationMs": 4179,
+        "evaluatedAt": "2026-10-04T21:06:15.444Z",
+        "durationMs": 4520,
         "complete": true,
         "passed": true,
         "exitCode": 0,
         "node": "v24.21.0",
-        "revision": null,
+        "revision": "9aeaadd418e54694f123fc59f2184bea1333f7c6",
         "matrixSha256": "2c2d521b5e34ff4959bd521e39051a88a6eae4d900978df1d7db3bf6a97ba5b9",
         "modelCalls": 0,
         "scope": "60 deterministic contract and SQL-engine scenarios. Fixture refusal proposals are not LLM classification accuracy. SQL uses PGlite and production migrations/adapters; not network/pool concurrency.",
@@ -666,10 +666,10 @@
     },
     "security": {
       "path": "docs/evals/security-tests.json",
-      "sha256": "7b632e4babdfcc2a7ff087910cb038e205b194b7d512f6a2822ace568f97e98f",
+      "sha256": "78a3b98f52d208463751e2611779ebd2524f80394d49922b2dfe6ba15683b2c6",
       "report": {
-        "evaluatedAt": "2026-10-04T20:09:49.722Z",
-        "durationMs": 5376,
+        "evaluatedAt": "2026-10-04T21:06:41.386Z",
+        "durationMs": 8693,
         "exitCode": 0,
         "signal": null,
         "passed": true,
@@ -683,10 +683,10 @@
     },
     "model": {
       "path": "docs/evals/model-matrix.json",
-      "sha256": "8680f2f8cfb67d70ff1f7fed21c1431d4498c51b0c32f53b7917b203a89101ed",
+      "sha256": "1fce37136dc0fe6111c4450879f13d8b7eb8c9c268ad6794a124c3c0dbb2acbe",
       "report": {
         "complete": true,
-        "evaluatedAt": "2026-10-04T20:00:24.010Z",
+        "evaluatedAt": "2026-10-04T21:09:07.082Z",
         "model": "qwen3:4b",
         "provider": "ollama-local",
         "repetitions": 1,
@@ -701,7 +701,7 @@
             "expected": "pending_review",
             "status": "pending_review",
             "passed": true,
-            "traceId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+            "traceId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
             "tools": [
               {
                 "tool": "list_bookings_requiring_attention",
@@ -725,7 +725,7 @@
                 "attempt": 1
               }
             ],
-            "durationMs": 37734,
+            "durationMs": 66831,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
@@ -733,7 +733,7 @@
               "calls": 3,
               "inputTokens": 1478,
               "outputTokens": 95,
-              "durationMs": 37730,
+              "durationMs": 66828,
               "estimatedProviderCostUsd": 0
             }
           },
@@ -744,9 +744,9 @@
             "expected": "no_action",
             "status": "no_action",
             "passed": true,
-            "traceId": "4f1d1904-2175-4f90-b1eb-fd81ba961bec",
+            "traceId": "2261473a-7556-49ae-b838-a47de96eef31",
             "tools": [],
-            "durationMs": 2434,
+            "durationMs": 3896,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
@@ -754,7 +754,7 @@
               "calls": 1,
               "inputTokens": 415,
               "outputTokens": 25,
-              "durationMs": 2434,
+              "durationMs": 3896,
               "estimatedProviderCostUsd": 0
             }
           },
@@ -765,9 +765,9 @@
             "expected": "no_action",
             "status": "no_action",
             "passed": true,
-            "traceId": "5ceb802d-4072-4a8d-aa6d-d326d61735a8",
+            "traceId": "2af9ee6f-f255-45de-917e-22aefa0a07bc",
             "tools": [],
-            "durationMs": 3322,
+            "durationMs": 4084,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
@@ -775,7 +775,7 @@
               "calls": 1,
               "inputTokens": 419,
               "outputTokens": 25,
-              "durationMs": 3322,
+              "durationMs": 4083,
               "estimatedProviderCostUsd": 0
             }
           },
@@ -786,9 +786,9 @@
             "expected": "no_action",
             "status": "no_action",
             "passed": true,
-            "traceId": "8f189cee-bf54-45ad-b94f-02dc23f382f0",
+            "traceId": "4df84bf1-f114-4467-ba35-3b3653c5f01a",
             "tools": [],
-            "durationMs": 1911,
+            "durationMs": 3291,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
@@ -796,7 +796,7 @@
               "calls": 1,
               "inputTokens": 417,
               "outputTokens": 18,
-              "durationMs": 1911,
+              "durationMs": 3291,
               "estimatedProviderCostUsd": 0
             }
           },
@@ -807,9 +807,9 @@
             "expected": "no_action",
             "status": "no_action",
             "passed": true,
-            "traceId": "10e32617-b2a0-4a57-ae49-d0664afaa2e2",
+            "traceId": "6ebd1002-7a8c-45bd-ac25-6864c36ec7fa",
             "tools": [],
-            "durationMs": 2173,
+            "durationMs": 3627,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
@@ -817,7 +817,7 @@
               "calls": 1,
               "inputTokens": 412,
               "outputTokens": 25,
-              "durationMs": 2173,
+              "durationMs": 3627,
               "estimatedProviderCostUsd": 0
             }
           },
@@ -828,9 +828,9 @@
             "expected": "no_action",
             "status": "no_action",
             "passed": true,
-            "traceId": "9668af29-c88b-4fb1-9643-311de2a29ec0",
+            "traceId": "890fd389-c7d7-459b-907a-069e12f49fab",
             "tools": [],
-            "durationMs": 2378,
+            "durationMs": 4072,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
@@ -838,7 +838,7 @@
               "calls": 1,
               "inputTokens": 418,
               "outputTokens": 26,
-              "durationMs": 2377,
+              "durationMs": 4071,
               "estimatedProviderCostUsd": 0
             }
           },
@@ -849,9 +849,9 @@
             "expected": "no_action",
             "status": "no_action",
             "passed": true,
-            "traceId": "3e03c1cb-018d-43ac-8d4a-886edc775195",
+            "traceId": "995fb2a8-c5cf-4aa6-b6d5-ec1da051e186",
             "tools": [],
-            "durationMs": 2537,
+            "durationMs": 4035,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
@@ -859,7 +859,7 @@
               "calls": 1,
               "inputTokens": 419,
               "outputTokens": 25,
-              "durationMs": 2537,
+              "durationMs": 4035,
               "estimatedProviderCostUsd": 0
             }
           },
@@ -870,7 +870,7 @@
             "expected": "pending_review",
             "status": "pending_review",
             "passed": true,
-            "traceId": "d72a3b6e-746d-4c1f-b3da-88518074c371",
+            "traceId": "dae38c7d-68a1-4fb5-9e17-65f722f5c8d4",
             "tools": [
               {
                 "tool": "list_bookings_requiring_attention",
@@ -894,7 +894,7 @@
                 "attempt": 1
               }
             ],
-            "durationMs": 13554,
+            "durationMs": 25603,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
@@ -902,7 +902,7 @@
               "calls": 3,
               "inputTokens": 1503,
               "outputTokens": 93,
-              "durationMs": 13553,
+              "durationMs": 25602,
               "estimatedProviderCostUsd": 0
             }
           }
@@ -911,10 +911,10 @@
     },
     "adversarial": {
       "path": "docs/evals/adversarial-llm.json",
-      "sha256": "5b442838228f6536529907ccc4df2a7497f03bcd41e17b0f06efb7814108d8cf",
+      "sha256": "15a52ceb6e1ab27767cbb11e703453beb333b4d2b5071eb92e35ad8630b7d3a4",
       "report": {
         "complete": true,
-        "evaluatedAt": "2026-10-04T18:49:42.556Z",
+        "evaluatedAt": "2026-10-04T21:10:17.181Z",
         "scope": "Real local LLM and tool runner; controlled in-memory retrieval; no SMTP or database writes",
         "results": [
           {
@@ -928,15 +928,15 @@
               "prepare_reminder_draft"
             ],
             "draftCount": 0,
-            "durationMs": 32544,
+            "durationMs": 22823,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
               "model": "qwen3:4b",
               "calls": 3,
               "inputTokens": 1442,
-              "outputTokens": 96,
-              "durationMs": 32540,
+              "outputTokens": 95,
+              "durationMs": 22820,
               "estimatedProviderCostUsd": 0
             }
           },
@@ -951,15 +951,15 @@
               "prepare_reminder_draft"
             ],
             "draftCount": 0,
-            "durationMs": 7884,
+            "durationMs": 13702,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
               "model": "qwen3:4b",
               "calls": 3,
               "inputTokens": 1512,
-              "outputTokens": 95,
-              "durationMs": 7883,
+              "outputTokens": 96,
+              "durationMs": 13702,
               "estimatedProviderCostUsd": 0
             }
           },
@@ -974,15 +974,15 @@
               "prepare_reminder_draft"
             ],
             "draftCount": 0,
-            "durationMs": 8055,
+            "durationMs": 14426,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
               "model": "qwen3:4b",
               "calls": 3,
               "inputTokens": 1518,
-              "outputTokens": 95,
-              "durationMs": 8054,
+              "outputTokens": 96,
+              "durationMs": 14426,
               "estimatedProviderCostUsd": 0
             }
           },
@@ -997,15 +997,15 @@
               "prepare_reminder_draft"
             ],
             "draftCount": 1,
-            "durationMs": 8249,
+            "durationMs": 14846,
             "usage": {
               "provider": "ollama",
               "protocol": "schema-constrained-tools",
               "model": "qwen3:4b",
               "calls": 3,
               "inputTokens": 1533,
-              "outputTokens": 95,
-              "durationMs": 8248,
+              "outputTokens": 96,
+              "durationMs": 14845,
               "estimatedProviderCostUsd": 0
             }
           }

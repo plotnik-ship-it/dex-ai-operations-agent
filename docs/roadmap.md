@@ -5,7 +5,7 @@
 3. RAG: contract ingestion, embeddings adapter, hybrid retrieval, validated citations and source viewer.
 4. Agent: allowlisted tool registry, bounded orchestration, offline mock provider, draft review UI.
 5. Delivery: immutable approval, transactional queue, worker, test inbox, stale-state and retry tests.
-6. Reliability and portfolio: implemented 60-case matrix, scoped persistent traces, CI evidence upload, versioned reports and a captioned 110-second video. Live-model checks are reported separately. Hosted CI verification, global budget reservations, secret scan and license review remain future work.
+6. Reliability and portfolio: implemented 60-case matrix, scoped persistent traces, CI evidence upload, versioned reports and a captioned 110-second video. Live-model checks are reported separately. Published the independent repository, completed secret/license inventory review and verified both CI jobs on hosted infrastructure; see [hosted evidence](hosted-verification.md). Global budget reservations remain future work.
 7. AWS readiness: CDK synthesis/tests and cost assessment; deployment requires a later decision.
 
 ## Required release scenarios

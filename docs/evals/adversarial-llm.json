@@ -1,6 +1,6 @@
 {
   "complete": true,
-  "evaluatedAt": "2026-10-04T18:49:42.556Z",
+  "evaluatedAt": "2026-10-04T21:10:17.181Z",
   "scope": "Real local LLM and tool runner; controlled in-memory retrieval; no SMTP or database writes",
   "results": [
     {
@@ -14,15 +14,15 @@
         "prepare_reminder_draft"
       ],
       "draftCount": 0,
-      "durationMs": 32544,
+      "durationMs": 22823,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
         "model": "qwen3:4b",
         "calls": 3,
         "inputTokens": 1442,
-        "outputTokens": 96,
-        "durationMs": 32540,
+        "outputTokens": 95,
+        "durationMs": 22820,
         "estimatedProviderCostUsd": 0
       }
     },
@@ -37,15 +37,15 @@
         "prepare_reminder_draft"
       ],
       "draftCount": 0,
-      "durationMs": 7884,
+      "durationMs": 13702,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
         "model": "qwen3:4b",
         "calls": 3,
         "inputTokens": 1512,
-        "outputTokens": 95,
-        "durationMs": 7883,
+        "outputTokens": 96,
+        "durationMs": 13702,
         "estimatedProviderCostUsd": 0
       }
     },
@@ -60,15 +60,15 @@
         "prepare_reminder_draft"
       ],
       "draftCount": 0,
-      "durationMs": 8055,
+      "durationMs": 14426,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
         "model": "qwen3:4b",
         "calls": 3,
         "inputTokens": 1518,
-        "outputTokens": 95,
-        "durationMs": 8054,
+        "outputTokens": 96,
+        "durationMs": 14426,
         "estimatedProviderCostUsd": 0
       }
     },
@@ -83,15 +83,15 @@
         "prepare_reminder_draft"
       ],
       "draftCount": 1,
-      "durationMs": 8249,
+      "durationMs": 14846,
       "usage": {
         "provider": "ollama",
         "protocol": "schema-constrained-tools",
         "model": "qwen3:4b",
         "calls": 3,
         "inputTokens": 1533,
-        "outputTokens": 95,
-        "durationMs": 8248,
+        "outputTokens": 96,
+        "durationMs": 14845,
         "estimatedProviderCostUsd": 0
       }
     }

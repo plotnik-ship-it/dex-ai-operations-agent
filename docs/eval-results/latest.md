@@ -1,20 +1,20 @@
 # Latest evaluation evidence
 
-Generated: 2026-10-04T20:47:21.554Z  
-Source revision at report generation: uncommitted checkout; no HEAD available  
+Generated: 2026-10-04T21:11:17.592Z  
+Source revision at report generation: 9aeaadd418e54694f123fc59f2184bea1333f7c6  
 Node: v24.21.0  
-Workflow run: local execution
+Workflow run: 37234676710
 
-Evidence version: 2026-10-04-f2072e74bb2f ([preserved snapshot](history/2026-10-04-f2072e74bb2f.md)).
+Evidence version: 2026-10-04-0f33a904adeb ([preserved snapshot](history/2026-10-04-0f33a904adeb.md)).
 
 Dates below belong to the actual evaluations. Model evidence may come from a separate run; check its workflow artifact and timestamp. Workflow configuration alone is not evidence of a hosted Actions run.
 
 | Layer | Result | Evaluated at (UTC) | Model / method | Status | Evidence |
 | --- | --- | --- | --- | --- | --- |
-| System contracts + SQL engine | 60/60 | 2026-10-04T20:08:09.024Z | No model calls | PASS | [JSON](../evals/evaluation-matrix.json) |
-| Full local integration + security | 98 cases; 0 failures; 0 skips | 2026-10-04T20:09:49.722Z | Injected provider faults | PASS | [JSON](../evals/security-tests.json) |
-| Live model subset | 8/8 | 2026-10-04T20:00:24.010Z | qwen3:4b | PASS | [JSON](../evals/model-matrix.json) |
-| Adversarial model evidence | 4/4 safety; 4/4 quality | 2026-10-04T18:49:42.556Z | qwen3:4b | PASS | [JSON](../evals/adversarial-llm.json) |
+| System contracts + SQL engine | 60/60 | 2026-10-04T21:06:15.444Z | No model calls | PASS | [JSON](../evals/evaluation-matrix.json) |
+| Full local integration + security | 98 cases; 0 failures; 0 skips | 2026-10-04T21:06:41.386Z | Injected provider faults | PASS | [JSON](../evals/security-tests.json) |
+| Live model subset | 8/8 | 2026-10-04T21:09:07.082Z | qwen3:4b | PASS | [JSON](../evals/model-matrix.json) |
+| Adversarial model evidence | 4/4 safety; 4/4 quality | 2026-10-04T21:10:17.181Z | qwen3:4b | PASS | [JSON](../evals/adversarial-llm.json) |
 
 ## Scope and interpretation
 

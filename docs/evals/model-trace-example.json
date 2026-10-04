@@ -1,12 +1,12 @@
 {
-  "traceId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+  "traceId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
   "storage": "Controlled in-memory tools; actual local model decisions",
   "events": [
     {
-      "id": "95b8cb44-2dad-44e1-9e54-46b2befa226b",
-      "timestamp": "2026-10-04T19:59:17.953Z",
+      "id": "322aa8d0-2ea6-48f6-a522-1a23c5287fa5",
+      "timestamp": "2026-10-04T21:07:11.632Z",
       "type": "user_request",
-      "spanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "parentSpanId": null,
       "durationMs": null,
       "data": {
@@ -16,10 +16,10 @@
       }
     },
     {
-      "id": "57a5c3db-fa2a-4427-81e3-c8d76ea1b8eb",
-      "timestamp": "2026-10-04T19:59:17.954Z",
+      "id": "21bfbb37-7c0c-4138-b5ca-0db441082aab",
+      "timestamp": "2026-10-04T21:07:11.633Z",
       "type": "permission_check",
-      "spanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "parentSpanId": null,
       "durationMs": null,
       "data": {
@@ -29,11 +29,11 @@
       }
     },
     {
-      "id": "8fe5d57e-9377-47a3-b9e8-86f41dde219f",
-      "timestamp": "2026-10-04T19:59:17.954Z",
+      "id": "4d12633f-7458-4ac4-b46d-c92f62ac8fe7",
+      "timestamp": "2026-10-04T21:07:11.633Z",
       "type": "model_started",
-      "spanId": "00913110-087e-46ef-8519-46abde43d32d",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "62d2451a-1f40-419a-a8ef-7a15601d2e2c",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": null,
       "data": {
         "step": 0,
@@ -41,12 +41,12 @@
       }
     },
     {
-      "id": "629c7702-89d4-4cad-be1f-fbc5b4e60054",
-      "timestamp": "2026-10-04T19:59:33.939Z",
+      "id": "4481f887-fb31-4732-aca8-e844e6ac3259",
+      "timestamp": "2026-10-04T21:07:36.649Z",
       "type": "model_decision",
-      "spanId": "00913110-087e-46ef-8519-46abde43d32d",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
-      "durationMs": 15985,
+      "spanId": "62d2451a-1f40-419a-a8ef-7a15601d2e2c",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
+      "durationMs": 25016,
       "data": {
         "step": 0,
         "decision": {
@@ -62,17 +62,17 @@
           "calls": 1,
           "inputTokens": 426,
           "outputTokens": 35,
-          "durationMs": 15985,
+          "durationMs": 25016,
           "estimatedProviderCostUsd": 0
         }
       }
     },
     {
-      "id": "239c1b11-1ef7-4b9e-80ac-3e9bb8162f96",
-      "timestamp": "2026-10-04T19:59:33.939Z",
+      "id": "c9074782-5799-4633-b624-c3d8a38aa0a6",
+      "timestamp": "2026-10-04T21:07:36.649Z",
       "type": "tool_selected",
-      "spanId": "0aed070d-554d-4bd7-acc9-7d5d18d85276",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "68e1e2e3-dc40-4041-8c34-829a3f85616d",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": null,
       "data": {
         "tool": "list_bookings_requiring_attention",
@@ -83,11 +83,11 @@
       }
     },
     {
-      "id": "e8b42367-e214-48e9-8505-b752c3d59a1c",
-      "timestamp": "2026-10-04T19:59:33.939Z",
+      "id": "f1c47296-b8cb-427d-82cd-de1334b7d467",
+      "timestamp": "2026-10-04T21:07:36.649Z",
       "type": "permission_check",
-      "spanId": "0aed070d-554d-4bd7-acc9-7d5d18d85276",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "68e1e2e3-dc40-4041-8c34-829a3f85616d",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": null,
       "data": {
         "boundary": "booking_read",
@@ -95,11 +95,11 @@
       }
     },
     {
-      "id": "47f08c99-ad2f-479c-835f-cbd864315ffe",
-      "timestamp": "2026-10-04T19:59:33.939Z",
+      "id": "383e33ae-3938-4c1a-b501-bbc0ccd3ec14",
+      "timestamp": "2026-10-04T21:07:36.649Z",
       "type": "tool_result",
-      "spanId": "0aed070d-554d-4bd7-acc9-7d5d18d85276",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "68e1e2e3-dc40-4041-8c34-829a3f85616d",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": 0,
       "data": {
         "tool": "list_bookings_requiring_attention",
@@ -117,11 +117,11 @@
       }
     },
     {
-      "id": "6457bd37-ef3c-4dcf-881f-f16afb67741e",
-      "timestamp": "2026-10-04T19:59:33.939Z",
+      "id": "ea5979ff-8edb-4a15-b0e6-9caba39c7eff",
+      "timestamp": "2026-10-04T21:07:36.649Z",
       "type": "model_started",
-      "spanId": "e104fc17-4bad-4030-8143-5a18be59401c",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "76e79820-0974-42b2-bf78-edbfd5e89178",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": null,
       "data": {
         "step": 1,
@@ -129,12 +129,12 @@
       }
     },
     {
-      "id": "1618968d-922a-4576-b8be-a82ddb2340f8",
-      "timestamp": "2026-10-04T19:59:45.339Z",
+      "id": "04018818-61e7-4cda-8b90-8aa7713de1db",
+      "timestamp": "2026-10-04T21:07:55.790Z",
       "type": "model_decision",
-      "spanId": "e104fc17-4bad-4030-8143-5a18be59401c",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
-      "durationMs": 11400,
+      "spanId": "76e79820-0974-42b2-bf78-edbfd5e89178",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
+      "durationMs": 19141,
       "data": {
         "step": 1,
         "decision": {
@@ -150,17 +150,17 @@
           "calls": 2,
           "inputTokens": 911,
           "outputTokens": 67,
-          "durationMs": 27384,
+          "durationMs": 44157,
           "estimatedProviderCostUsd": 0
         }
       }
     },
     {
-      "id": "b6a50312-c2b2-43b4-8fd8-f14b634e2c5d",
-      "timestamp": "2026-10-04T19:59:45.339Z",
+      "id": "32a23c6f-ed6a-4f97-b38b-f9253be91226",
+      "timestamp": "2026-10-04T21:07:55.790Z",
       "type": "tool_selected",
-      "spanId": "9ee78472-7c3f-43c7-854a-44962f66d053",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "81ebc7a4-7ec4-4aa0-ac17-4d8f8dfe6c10",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": null,
       "data": {
         "tool": "search_contract_sources",
@@ -171,11 +171,11 @@
       }
     },
     {
-      "id": "135ca9f4-9d24-43c9-8f0e-92bc4222ddab",
-      "timestamp": "2026-10-04T19:59:45.339Z",
+      "id": "31386b74-3f16-4449-8f84-5ad7a718df41",
+      "timestamp": "2026-10-04T21:07:55.790Z",
       "type": "permission_check",
-      "spanId": "9ee78472-7c3f-43c7-854a-44962f66d053",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "81ebc7a4-7ec4-4aa0-ac17-4d8f8dfe6c10",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": null,
       "data": {
         "boundary": "source_search",
@@ -183,11 +183,11 @@
       }
     },
     {
-      "id": "4c9c41f7-7142-421b-b393-da24c01eaa21",
-      "timestamp": "2026-10-04T19:59:45.339Z",
+      "id": "d9e7dd6a-0286-48c2-9ab2-42c8bc9babd4",
+      "timestamp": "2026-10-04T21:07:55.790Z",
       "type": "permission_check",
-      "spanId": "9ee78472-7c3f-43c7-854a-44962f66d053",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "81ebc7a4-7ec4-4aa0-ac17-4d8f8dfe6c10",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": null,
       "data": {
         "boundary": "source_expansion",
@@ -195,11 +195,11 @@
       }
     },
     {
-      "id": "bed40775-f0ff-4212-a42a-e250d70da84b",
-      "timestamp": "2026-10-04T19:59:45.339Z",
+      "id": "5ddb3915-5c38-4d47-b191-8b246ca4b6b9",
+      "timestamp": "2026-10-04T21:07:55.790Z",
       "type": "tool_result",
-      "spanId": "9ee78472-7c3f-43c7-854a-44962f66d053",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "81ebc7a4-7ec4-4aa0-ac17-4d8f8dfe6c10",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": 0,
       "data": {
         "tool": "search_contract_sources",
@@ -218,11 +218,11 @@
       }
     },
     {
-      "id": "9f4711b3-12a2-444c-9a52-ceaf69dce342",
-      "timestamp": "2026-10-04T19:59:45.339Z",
+      "id": "67956769-872b-4c04-b3ad-16f0c9154d04",
+      "timestamp": "2026-10-04T21:07:55.791Z",
       "type": "model_started",
-      "spanId": "38978098-1bf8-44f7-be10-dba5a53532aa",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "56101c6e-1c2e-430f-aff2-9ae501cbe742",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": null,
       "data": {
         "step": 2,
@@ -230,12 +230,12 @@
       }
     },
     {
-      "id": "f2d360b0-4165-4cc4-a560-3f84d9951dbb",
-      "timestamp": "2026-10-04T19:59:55.685Z",
+      "id": "0e845624-c336-477f-8062-98ff6df03663",
+      "timestamp": "2026-10-04T21:08:18.462Z",
       "type": "model_decision",
-      "spanId": "38978098-1bf8-44f7-be10-dba5a53532aa",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
-      "durationMs": 10346,
+      "spanId": "56101c6e-1c2e-430f-aff2-9ae501cbe742",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
+      "durationMs": 22671,
       "data": {
         "step": 2,
         "decision": {
@@ -251,17 +251,17 @@
           "calls": 3,
           "inputTokens": 1478,
           "outputTokens": 95,
-          "durationMs": 37730,
+          "durationMs": 66828,
           "estimatedProviderCostUsd": 0
         }
       }
     },
     {
-      "id": "cf19d5a4-dc90-478f-975f-c8df76e1bbb1",
-      "timestamp": "2026-10-04T19:59:55.685Z",
+      "id": "3b7824bc-2159-42d5-bdba-9702b8712fde",
+      "timestamp": "2026-10-04T21:08:18.462Z",
       "type": "tool_selected",
-      "spanId": "7bbcb3c8-edd7-46a1-a38f-ac32de2bad9f",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "4d49b354-be70-41ed-9714-7d407ac80111",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": null,
       "data": {
         "tool": "prepare_reminder_draft",
@@ -272,11 +272,11 @@
       }
     },
     {
-      "id": "d17263a1-a106-48c8-9def-641a6e2f94dc",
-      "timestamp": "2026-10-04T19:59:55.686Z",
+      "id": "49ae194d-2f03-4805-bd00-1cc81df306f4",
+      "timestamp": "2026-10-04T21:08:18.463Z",
       "type": "permission_check",
-      "spanId": "7bbcb3c8-edd7-46a1-a38f-ac32de2bad9f",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "4d49b354-be70-41ed-9714-7d407ac80111",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": null,
       "data": {
         "boundary": "draft_persistence",
@@ -284,11 +284,11 @@
       }
     },
     {
-      "id": "a887ca1c-bff6-4dd3-87d5-fe027d771bb6",
-      "timestamp": "2026-10-04T19:59:55.686Z",
+      "id": "47376371-1c46-445a-ac1e-82cfe167e137",
+      "timestamp": "2026-10-04T21:08:18.463Z",
       "type": "tool_result",
-      "spanId": "7bbcb3c8-edd7-46a1-a38f-ac32de2bad9f",
-      "parentSpanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "4d49b354-be70-41ed-9714-7d407ac80111",
+      "parentSpanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "durationMs": 1,
       "data": {
         "tool": "prepare_reminder_draft",
@@ -344,15 +344,15 @@
       }
     },
     {
-      "id": "cd6da00d-3344-49e3-adfe-ce10a8a181e5",
-      "timestamp": "2026-10-04T19:59:55.686Z",
+      "id": "6ee41c16-1b58-471b-bee8-b56a7e69855a",
+      "timestamp": "2026-10-04T21:08:18.463Z",
       "type": "final_answer",
-      "spanId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+      "spanId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
       "parentSpanId": null,
-      "durationMs": 37734,
+      "durationMs": 66831,
       "data": {
         "result": {
-          "runId": "8455be91-093c-4be0-bbae-bf9e05f835ec",
+          "runId": "046e62e9-3955-4774-b09a-acdffdb4d0b4",
           "plannerMode": "ollama-local",
           "status": "pending_review",
           "drafts": [
@@ -426,13 +426,13 @@
             "calls": 3,
             "inputTokens": 1478,
             "outputTokens": 95,
-            "durationMs": 37730,
+            "durationMs": 66828,
             "estimatedProviderCostUsd": 0
           },
           "deliveryEnabled": false,
           "estimatedProviderCostUsd": 0,
           "draftId": "fixture-draft",
-          "expiresAt": "2026-10-04T20:29:55.686Z"
+          "expiresAt": "2026-10-04T21:38:18.463Z"
         },
         "modelUsage": {
           "provider": "ollama",
@@ -441,7 +441,7 @@
           "calls": 3,
           "inputTokens": 1478,
           "outputTokens": 95,
-          "durationMs": 37730,
+          "durationMs": 66828,
           "estimatedProviderCostUsd": 0
         },
         "retries": 0
